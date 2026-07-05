@@ -1,26 +1,242 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   METADOX DESIGN SYSTEM
+   Brand: AI Digital Transformation
+   ============================================================ */
+
+@theme {
+  /* ---- Brand palette ---- */
+  --color-navy: #03153b;
+  --color-navy-soft: #0a2350;
+  --color-navy-line: #1c3060;
+  --color-royal: #173d8b;
+  --color-blue: #015ee8;
+  --color-blue-ink: #0a4fc0;
+  --color-blue-bright: #3b82f6;
+  --color-blue-soft: #e8f0fe;
+
+  /* ---- Neutrals ---- */
+  --color-ink: #111827;
+  --color-muted: #6b7280;
+  --color-line: #e5e7eb;
+  --color-canvas: #f8fafc;
+
+  /* ---- Radii ---- */
+  --radius-4xl: 2rem;
+
+  /* ---- Shadows (soft, enterprise) ---- */
+  --shadow-soft: 0 1px 2px rgba(3, 21, 59, 0.04), 0 8px 24px -8px rgba(3, 21, 59, 0.10);
+  --shadow-lift: 0 1px 3px rgba(3, 21, 59, 0.05), 0 18px 40px -12px rgba(3, 21, 59, 0.16);
+  --shadow-glow: 0 20px 60px -20px rgba(1, 94, 232, 0.45);
+
+  /* ---- Motion ---- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---- Keyframes ---- */
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-aurora: aurora 16s ease-in-out infinite;
 }
 
+/* Fonts wired from next/font — inline so utilities resolve the runtime var */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --default-font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes aurora {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.55; }
+  50% { transform: translate(6%, -4%) scale(1.15); opacity: 0.8; }
+}
+@keyframes dash {
+  to { stroke-dashoffset: -1000; }
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --header-h: 4.5rem;
+    color-scheme: light;
+  }
+
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  p { text-wrap: pretty; }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-blue) 22%, transparent);
+    color: var(--color-navy);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-blue);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Custom scrollbar (desktop) */
+  @media (pointer: fine) {
+    ::-webkit-scrollbar { width: 11px; height: 11px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb {
+      background: color-mix(in srgb, var(--color-navy) 22%, transparent);
+      border-radius: 999px;
+      border: 3px solid var(--color-canvas);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: color-mix(in srgb, var(--color-navy) 40%, transparent);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ============================================================
+   COMPONENT / UTILITY HELPERS
+   ============================================================ */
+
+/* Brand gradient surfaces */
+.bg-brand-gradient {
+  background-image: linear-gradient(135deg, #03153b 0%, #173d8b 50%, #015ee8 100%);
+}
+.bg-brand-gradient-soft {
+  background-image: linear-gradient(135deg, #f8fafc 0%, #eef4ff 55%, #e2ecff 100%);
+}
+
+/* Gradient text */
+.text-gradient {
+  background-image: linear-gradient(120deg, #015ee8 0%, #173d8b 55%, #03153b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-gradient-light {
+  background-image: linear-gradient(120deg, #ffffff 0%, #cfe0ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.text-gradient-electric {
+  color: #015ee8;
+  text-shadow: 0 0 14px rgba(59, 130, 246, 0.65), 0 0 32px rgba(1, 94, 232, 0.5),
+    0 0 52px rgba(34, 211, 238, 0.35);
+}
+
+/* Glassmorphism */
+.glass {
+  background-color: color-mix(in srgb, #ffffff 70%, transparent);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+.glass-dark {
+  background-color: color-mix(in srgb, #03153b 55%, transparent);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* Hairline gradient border card (uses padding + bg trick) */
+.ring-gradient {
+  position: relative;
+  isolation: isolate;
+}
+.ring-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(1, 94, 232, 0.5), rgba(3, 21, 59, 0.05) 60%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Decorative backgrounds */
+.grid-lines {
+  background-image:
+    linear-gradient(to right, rgba(3, 21, 59, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(3, 21, 59, 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.grid-lines-dark {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.dot-grid {
+  background-image: radial-gradient(rgba(3, 21, 59, 0.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+.mask-fade-b {
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent);
+}
+.mask-fade-edges {
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+/* Layout helpers */
+.section-pad { padding-block: clamp(4.5rem, 9vw, 8.5rem); }
+
+/* ============================================================
+   LENIS SMOOTH SCROLL
+   ============================================================ */
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+.lenis.lenis-smooth iframe { pointer-events: none; }
+
+/* ============================================================
+   ACCESSIBILITY — respect reduced motion
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
