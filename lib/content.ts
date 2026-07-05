@@ -1,7 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 import type { IconType } from "react-icons";
 import { FaFileExcel, FaFilePdf, FaLinkedin } from "react-icons/fa6";
-import { BsFileEarmarkSpreadsheetFill } from "react-icons/bs";
+import { BsFileEarmarkSpreadsheetFill, BsOpenai } from "react-icons/bs";
 import {
   SiN8N,
   SiSupabase,
@@ -10,6 +10,18 @@ import {
   SiNextdotjs,
   SiInstagram,
   SiDigitalocean,
+  SiReact,
+  SiTypescript,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiPython,
+  SiPostgresql,
+  SiDocker,
+  SiVercel,
+  SiGithub,
+  SiZapier,
+  SiClaude,
+  SiGooglegemini,
 } from "react-icons/si";
 import {
   TrendingUp,
@@ -121,20 +133,38 @@ export const readinessCards: ReadinessCard[] = [
 /* ---------------------------- Cost of Waiting ----------------------------- */
 
 export const costOfWaiting = {
-  wait: [
-    "Manual, repetitive processes",
-    "Higher operating costs",
-    "Slower, gut-based decisions",
-    "A widening AI skills gap",
-    "Falling behind competitors",
-  ],
-  act: [
-    "Automated, streamlined workflows",
-    "Lower costs, higher productivity",
-    "Faster, data-driven decisions",
-    "A stronger customer experience",
-    "An AI-ready, confident workforce",
-  ],
+  business: {
+    wait: [
+      "Manual, repetitive processes",
+      "Higher operating costs",
+      "Slower, gut-based decisions",
+      "A widening AI skills gap",
+      "Falling behind competitors",
+    ],
+    act: [
+      "Automated, streamlined workflows",
+      "Lower costs, higher productivity",
+      "Faster, data-driven decisions",
+      "A stronger customer experience",
+      "An AI-ready, confident workforce",
+    ],
+  },
+  people: {
+    wait: [
+      "Skills fall behind as AI reshapes roles",
+      "Stuck doing manual, repetitive tasks",
+      "Career growth stalls without new capabilities",
+      "Anxious about being replaced by AI",
+      "Missed opportunities for higher-value work",
+    ],
+    act: [
+      "Future-proofed skills that stay relevant",
+      "Confident using AI to work faster",
+      "Career growth accelerates with new capabilities",
+      "Seen as a valuable, AI-ready professional",
+      "Access to higher-value, higher-paid opportunities",
+    ],
+  },
 };
 
 /* ------------------------------- Framework -------------------------------- */
@@ -193,7 +223,7 @@ export const frameworkSteps: FrameworkStep[] = [
       "Data security & access control",
     ],
     output: { icon: Database, label: "Solid Digital Foundation & Connected Systems" },
-    duration: "3 – 8 Weeks",
+    duration: "2 – 4 Weeks",
   },
   {
     no: "03",
@@ -213,7 +243,7 @@ export const frameworkSteps: FrameworkStep[] = [
       "Real-time dashboards & reporting",
     ],
     output: { icon: Zap, label: "Automated Workflows & Operational Efficiency" },
-    duration: "2 – 6 Weeks",
+    duration: "1 – 3 Weeks",
   },
   {
     no: "04",
@@ -233,7 +263,7 @@ export const frameworkSteps: FrameworkStep[] = [
       "Prompt engineering & tuning",
     ],
     output: { icon: Bot, label: "AI-Powered Solutions & Business Intelligence" },
-    duration: "2 – 4 Weeks",
+    duration: "1 – 3 Weeks",
   },
   {
     no: "05",
@@ -1163,6 +1193,27 @@ export const externalPortfolioProjects: ExternalPortfolioProject[] = [
       "An all-in-one commercial drone solutions hub bringing facade inspection and drone photography/videography for marketing together on one site.",
     url: "https://drone-aio.vercel.app/",
   },
+];
+
+/* ------------------------------ Technologies ------------------------------- */
+
+export const technologies: FeaturedProjectTech[] = [
+  { name: "Next.js", icon: SiNextdotjs, colorClassName: "text-navy" },
+  { name: "React", icon: SiReact, colorClassName: "text-[#61DAFB]" },
+  { name: "TypeScript", icon: SiTypescript, colorClassName: "text-[#3178C6]" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, colorClassName: "text-[#06B6D4]" },
+  { name: "Node.js", icon: SiNodedotjs, colorClassName: "text-[#5FA04E]" },
+  { name: "Python", icon: SiPython, colorClassName: "text-[#3776AB]" },
+  { name: "Supabase", icon: SiSupabase, colorClassName: "text-[#3ECF8E]" },
+  { name: "PostgreSQL", icon: SiPostgresql, colorClassName: "text-[#4169E1]" },
+  { name: "Docker", icon: SiDocker, colorClassName: "text-[#2496ED]" },
+  { name: "Vercel", icon: SiVercel, colorClassName: "text-navy" },
+  { name: "GitHub", icon: SiGithub, colorClassName: "text-navy" },
+  { name: "n8n", icon: SiN8N, colorClassName: "text-[#EA4B71]" },
+  { name: "Zapier", icon: SiZapier, colorClassName: "text-[#FF4F00]" },
+  { name: "OpenAI", icon: BsOpenai, colorClassName: "text-navy" },
+  { name: "Claude", icon: SiClaude, colorClassName: "text-[#D97757]" },
+  { name: "Gemini", icon: SiGooglegemini, colorClassName: "text-[#4285F4]" },
 ];
 
 /* -------------------------------- Partners -------------------------------- */

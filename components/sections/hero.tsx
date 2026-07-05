@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
+import { ScrollButton } from "@/components/ui/scroll-button";
 import { Badge } from "@/components/ui/badge";
 import { FadeIn } from "@/components/ui/motion";
 import { heroFeatures } from "@/lib/content";
@@ -43,11 +44,9 @@ export function Hero() {
 
           <FadeIn delay={0.16}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
-              We help businesses transform through strategy, software,
-              automation and AI. By combining business consulting with
-              technology implementation, we solve operational bottlenecks,
-              improve productivity and build the digital foundation needed
-              to unlock AI&apos;s full potential.
+              Many businesses and individuals know AI will shape the future,
+              but don&apos;t know where to start. We turn AI into practical
+              solutions, skills, and opportunities that create real impact.
             </p>
           </FadeIn>
 
@@ -57,9 +56,9 @@ export function Hero() {
                 Book Free Consultation
                 <ArrowRight className="size-4 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
               </Button>
-              <Button href="#solutions" size="lg" variant="glass">
-                Explore Solutions
-              </Button>
+              <ScrollButton targetId="readiness" size="lg" variant="glass">
+                Check Your AI Readiness
+              </ScrollButton>
             </div>
           </FadeIn>
         </div>

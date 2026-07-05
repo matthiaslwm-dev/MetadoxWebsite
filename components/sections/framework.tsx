@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, ArrowRight, Clock, TrendingUp } from "lucide-react";
+import { Check, ArrowRight, Clock, TrendingUp, Zap } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { cn } from "@/lib/utils";
@@ -125,6 +125,22 @@ export function Framework() {
             </>
           }
         />
+
+        {/* Speed callout */}
+        <div className="mx-auto mt-10 flex max-w-3xl flex-col items-center gap-4 rounded-2xl border border-blue/15 bg-blue-50 px-6 py-5 text-center sm:flex-row sm:gap-6 sm:text-left">
+          <span className="inline-flex size-12 shrink-0 items-center justify-center rounded-xl bg-blue text-white">
+            <Zap className="size-5" />
+          </span>
+          <div>
+            <p className="font-heading text-lg font-bold text-navy">
+              Delivered in weeks, not months
+            </p>
+            <p className="mt-0.5 text-sm text-muted">
+              From identifying opportunities to implementing practical AI
+              solutions, we help businesses achieve measurable results faster.
+            </p>
+          </div>
+        </div>
 
         {/* Step nav */}
         <div className="mt-14 -mx-6 flex items-stretch gap-2 overflow-x-auto px-6 pb-2 lg:mx-0 lg:gap-3 lg:overflow-visible lg:px-0 lg:pb-0">

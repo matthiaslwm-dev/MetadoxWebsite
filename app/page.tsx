@@ -4,6 +4,7 @@ import { CostOfWaiting } from "@/components/sections/cost-of-waiting";
 import { Framework } from "@/components/sections/framework";
 import { Solutions } from "@/components/sections/solutions";
 import { CaseStudies } from "@/components/sections/case-studies";
+import { Technologies } from "@/components/sections/technologies";
 import { CTA } from "@/components/sections/cta";
 import { siteConfig } from "@/lib/site";
 
@@ -53,6 +54,7 @@ export default function Home() {
       <Framework />
       <Solutions />
       <CaseStudies />
+      <Technologies />
       <CTA />
     </>
   );

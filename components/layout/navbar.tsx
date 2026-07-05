@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLenis } from "lenis/react";
 import { ArrowRight, Menu, X } from "lucide-react";
@@ -12,9 +13,17 @@ import { navItems, primaryCta } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const lenis = useLenis(({ scroll }) => setScrolled(scroll > 8));
+
+  const handleLogoClick = (event: { preventDefault: () => void }) => {
+    if (pathname === "/") {
+      event.preventDefault();
+      lenis?.scrollTo(0, { duration: 1.2 });
+    }
+  };
 
   const setMenu = (next: boolean) => {
     setOpen(next);
@@ -34,7 +43,7 @@ export function Navbar() {
       )}
     >
       <Container className="flex h-[var(--header-h)] items-center justify-between gap-4">
-        <ImageLogo tone={solid ? "dark" : "light"} />
+        <ImageLogo tone={solid ? "dark" : "light"} onClick={handleLogoClick} />
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-0.5 lg:flex">

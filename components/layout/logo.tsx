@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { MouseEvent } from "react";
 import { cn } from "@/lib/utils";
 import { siteConfig } from "@/lib/site";
 
@@ -55,15 +56,18 @@ export function LogoMark({
 export function ImageLogo({
   className,
   tone = "dark",
+  onClick,
 }: {
   className?: string;
   tone?: "dark" | "light";
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
 }) {
   const isLight = tone === "light";
   return (
     <Link
       href="/"
       aria-label={`${siteConfig.name} home`}
+      onClick={onClick}
       className={cn("inline-flex items-center transition-opacity hover:opacity-90", className)}
     >
       <Image
