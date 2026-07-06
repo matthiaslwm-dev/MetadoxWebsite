@@ -21,7 +21,7 @@ export function ScrollButton({
   return (
     <button
       type="button"
-      className={cn(buttonVariants({ variant, size }), className)}
+      className={cn(buttonVariants({ variant, size }), "cursor-pointer", className)}
       onClick={() => {
         document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
       }}

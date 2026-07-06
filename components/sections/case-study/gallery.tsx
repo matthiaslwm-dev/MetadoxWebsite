@@ -14,7 +14,7 @@ export function Gallery({ project }: { project: PortfolioProject }) {
           eyebrow="Demo"
           title={
             <>
-              See It In <span className="text-gradient">Action</span>
+              Video <span className="text-gradient">Demo</span>
             </>
           }
           description={demo.description}
@@ -32,7 +32,7 @@ export function Gallery({ project }: { project: PortfolioProject }) {
               <div className="aspect-video w-full">
                 <iframe
                   src={demo.embedUrl}
-                  title={`${project.name} interactive demo`}
+                  title={`${project.name} video demo`}
                   className="size-full"
                   allow="clipboard-write"
                   allowFullScreen
@@ -44,11 +44,11 @@ export function Gallery({ project }: { project: PortfolioProject }) {
                   <Play className="size-6 fill-current" />
                 </span>
                 <p className="font-heading text-lg font-bold text-navy">
-                  Interactive demo coming soon
+                  Video demo coming soon
                 </p>
                 <p className="max-w-md text-sm leading-relaxed text-muted">
-                  A walkthrough of the {project.name} workflow will be embedded
-                  here.
+                  A narrated walkthrough of the {project.name} workflow will
+                  be embedded here.
                 </p>
               </div>
             )}

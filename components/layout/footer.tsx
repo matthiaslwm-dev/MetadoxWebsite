@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Mail, MapPin, ArrowUpRight } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { Logo } from "./logo";
+import { ImageLogo } from "./logo";
 import { siteConfig, footerNav } from "@/lib/site";
 
 function LinkedInIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -46,11 +46,10 @@ export function Footer() {
         <div className="grid gap-12 lg:grid-cols-[1.4fr_2fr]">
           {/* Brand column */}
           <div className="flex flex-col gap-6">
-            <Logo tone="light" />
+            <ImageLogo tone="light" />
             <p className="max-w-sm text-[0.95rem] leading-relaxed text-white/65">
               {siteConfig.promise} We help organisations and their people adopt
-              AI with practical strategy, implementation and a Singapore–China
-              innovation bridge.
+              AI with practical strategy and implementation.
             </p>
 
             <div className="flex flex-col gap-2.5 text-sm text-white/70">

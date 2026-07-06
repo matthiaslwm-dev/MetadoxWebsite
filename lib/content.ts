@@ -829,7 +829,9 @@ export const portfolioProjects: PortfolioProject[] = [
       { name: "Resend", icon: SiResend, colorClassName: "text-navy" },
     ],
     demo: {
-      description: "Try InvoiceFlow's interactive demo — experience the workflow.",
+      description:
+        "Watch a narrated video walkthrough of InvoiceFlow in action.",
+      embedUrl: "https://app.arcade.software/share/videos/x13fbm2ZuArJfqmRtAUg",
     },
     features: [
       {

@@ -46,8 +46,6 @@ export const footerNav = [
     links: [
       { label: "About Metadox", href: "/about" },
       { label: "Our Framework", href: "#framework" },
-      { label: "Case Studies", href: "#results" },
-      { label: "Careers", href: "#" },
       { label: "Contact", href: "#contact" },
     ],
   },

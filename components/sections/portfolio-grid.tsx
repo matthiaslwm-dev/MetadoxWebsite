@@ -35,7 +35,7 @@ const cards: Card[] = [
     industry: project.industry,
     name: project.name,
     description: project.description,
-    ctaLabel: "View Case Study",
+    ctaLabel: "See More",
     href: `/projects/${project.slug}`,
   })),
   ...externalPortfolioProjects.map((project) => ({

@@ -45,21 +45,16 @@ export function Challenge({ project }: { project: PortfolioProject }) {
           </Reveal>
         </div>
 
-        <Stagger className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <Stagger className="mt-14 grid grid-cols-2 gap-3 lg:grid-cols-4">
           {project.challenge.painPoints.map((point) => (
-            <StaggerItem key={point.label} className="h-full">
-              <div className="flex h-full flex-col gap-3 rounded-2xl border border-line bg-canvas p-5 transition-colors hover:border-blue/30">
-                <span className="inline-flex size-10 items-center justify-center rounded-xl bg-blue-soft text-blue">
-                  <point.icon className="size-5" />
+            <StaggerItem key={point.label}>
+              <div className="flex items-center gap-2.5 rounded-xl border border-line bg-canvas px-3.5 py-3 transition-colors hover:border-blue/30">
+                <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-lg bg-blue-soft text-blue">
+                  <point.icon className="size-3.5" />
                 </span>
-                <div>
-                  <p className="text-sm font-semibold leading-snug text-ink">
-                    {point.label}
-                  </p>
-                  <p className="mt-1 text-sm leading-snug text-muted">
-                    {point.description}
-                  </p>
-                </div>
+                <p className="text-sm font-semibold leading-snug text-ink">
+                  {point.label}
+                </p>
               </div>
             </StaggerItem>
           ))}
