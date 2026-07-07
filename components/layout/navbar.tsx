@@ -33,6 +33,12 @@ export function Navbar() {
 
   const solid = scrolled || open;
 
+  const isAssessmentPage =
+    pathname.startsWith("/business-ai-readiness") || pathname.startsWith("/ai-skills-readiness");
+  if (isAssessmentPage) {
+    return null;
+  }
+
   return (
     <header
       className={cn(

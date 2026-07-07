@@ -6,7 +6,6 @@ import { CaseStudyHero } from "@/components/sections/case-study/hero";
 import { Challenge } from "@/components/sections/case-study/challenge";
 import { Solution } from "@/components/sections/case-study/solution";
 import { Workflow } from "@/components/sections/case-study/workflow";
-import { KeyFeatures } from "@/components/sections/case-study/features";
 import { BusinessImpact } from "@/components/sections/case-study/business-impact";
 import { Gallery } from "@/components/sections/case-study/gallery";
 import { CTA } from "@/components/sections/cta";
@@ -54,9 +53,8 @@ export default async function ProjectDetailPage({
       <Challenge project={project} />
       <Solution project={project} />
       <Workflow project={project} />
-      <KeyFeatures project={project} />
-      <BusinessImpact project={project} />
       <Gallery project={project} />
+      <BusinessImpact project={project} />
       <CTA />
     </>
   );

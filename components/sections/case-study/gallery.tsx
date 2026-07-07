@@ -8,16 +8,16 @@ export function Gallery({ project }: { project: PortfolioProject }) {
   const { demo, techStack } = project;
 
   return (
-    <section className="section-pad relative scroll-mt-24 bg-canvas">
+    <section className="section-pad relative scroll-mt-24 bg-slate-100">
       <Container>
         <SectionHeading
           eyebrow="Demo"
           title={
             <>
-              Video <span className="text-gradient">Demo</span>
+              This is how <span className="text-gradient">we do it</span>
             </>
           }
-          description={demo.description}
+          description="A closer look at the automation behind every step of the workflow."
         />
 
         <Reveal delay={0.1}>

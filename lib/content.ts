@@ -55,7 +55,6 @@ import {
   Repeat,
   AlertTriangle,
   Database,
-  Download,
   Clock,
   Hourglass,
   Coins,
@@ -70,7 +69,7 @@ import {
   Monitor,
   Settings,
   Brain,
-  MessageSquareText,
+  Phone,
 } from "lucide-react";
 
 /* ---------------------------------- Hero ---------------------------------- */
@@ -110,11 +109,11 @@ export const readinessCards: ReadinessCard[] = [
       { label: "Prioritised recommendations", icon: Lightbulb },
     ],
     cta: "Check Business AI Readiness",
-    href: "#contact",
+    href: "/business-ai-readiness",
   },
   {
     id: "workforce",
-    audience: "For Workforce",
+    audience: "For Individuals",
     icon: Users,
     title: "AI Skills Readiness",
     description:
@@ -126,7 +125,7 @@ export const readinessCards: ReadinessCard[] = [
       { label: "Skill-gap insights", icon: Award },
     ],
     cta: "Check AI Skills Readiness",
-    href: "#contact",
+    href: "/ai-skills-readiness",
   },
 ];
 
@@ -476,21 +475,21 @@ export const featuredProjects: FeaturedProject[] = [
     ],
   },
   {
-    slug: "nexus",
-    badge: "CRM & Automation",
-    badgeIcon: Users,
+    slug: "compass",
+    badge: "CRE Intelligence & Automation",
+    badgeIcon: Compass,
     mockup: "pipeline",
-    name: "Nexus",
+    name: "Compass",
     description:
-      "Lead generation and lead management system that uses AI to quantify leads and automate the sales pipeline.",
+      "AI intelligence system for commercial real estate teams that spots companies about to need more office, retail or warehouse space — before a human would notice.",
     problem:
-      "Sales staff manually combed LinkedIn, Facebook and Instagram for leads, then logged every detail by hand.",
+      "Brokers relied on cold calling, door-knocking and reactive URA REALIS/EdgeProp lease-expiration lists, missing companies that were quietly outgrowing their space until a competing broker already had months of head start.",
     solution:
-      "AI agents scrape and score leads by intent, then route them straight into an automated CRM pipeline.",
+      "AI agents scan hiring, funding and expansion signals to flag companies needing space months before a lease even comes up, then route the strongest opportunities straight into an automated pipeline.",
     stats: [
-      { icon: Zap, value: "80%", label: "Faster lead qualification" },
-      { icon: Database, value: "10,000+", label: "Leads processed" },
-      { icon: Target, value: "60%", label: "Higher quality leads" },
+      { icon: Zap, value: "80%", label: "Faster opportunity qualification" },
+      { icon: Database, value: "10,000+", label: "Companies monitored" },
+      { icon: Target, value: "60%", label: "Higher quality opportunities" },
       { icon: TrendingUp, value: "Real-time", label: "Pipeline visibility" },
     ],
     techStack: [
@@ -613,14 +612,13 @@ export type PortfolioProject = {
       tone: "blue" | "green" | "purple" | "orange";
     }[];
   };
-  features: { title: string; icon: LucideIcon; description: string }[];
   businessImpact: {
     description: string;
     stats: KpiStat[];
   };
   beforeAfterTable: { before: string; after: string }[];
   techStack: FeaturedProjectTech[];
-  demo: { description: string; embedUrl?: string };
+  demo: { embedUrl?: string; liveUrl?: string };
   businessValue: string[];
 };
 
@@ -829,60 +827,8 @@ export const portfolioProjects: PortfolioProject[] = [
       { name: "Resend", icon: SiResend, colorClassName: "text-navy" },
     ],
     demo: {
-      description:
-        "Watch a narrated video walkthrough of InvoiceFlow in action.",
       embedUrl: "https://app.arcade.software/share/videos/x13fbm2ZuArJfqmRtAUg",
     },
-    features: [
-      {
-        title: "Customer Database",
-        icon: Database,
-        description:
-          "A centralised record of every customer, ready for one-click invoicing.",
-      },
-      {
-        title: "Invoice Generation",
-        icon: FileCheck,
-        description:
-          "Create accurate invoices in seconds from stored customer and pricing data.",
-      },
-      {
-        title: "PDF Creation",
-        icon: FileText,
-        description:
-          "Every invoice is automatically rendered as a professional, branded PDF.",
-      },
-      {
-        title: "Email Automation",
-        icon: Mail,
-        description:
-          "Invoice emails are drafted automatically, ready for a final human review.",
-      },
-      {
-        title: "Invoice Tracking",
-        icon: LineChart,
-        description:
-          "See the status of every invoice — sent, viewed, paid or overdue — in one place.",
-      },
-      {
-        title: "Payment Reminder Automation",
-        icon: Bell,
-        description:
-          "Automated, well-timed reminders chase overdue payments without manual effort.",
-      },
-      {
-        title: "Export Invoice Records",
-        icon: Download,
-        description:
-          "Export invoice and payment data on demand for accounting and reporting.",
-      },
-      {
-        title: "Custom Workflow Integration",
-        icon: Plug,
-        description:
-          "Built to fit around existing tools and processes, not replace them overnight.",
-      },
-    ],
     businessValue: [
       "Reduces repetitive administrative work",
       "Standardises finance workflows",
@@ -894,120 +840,120 @@ export const portfolioProjects: PortfolioProject[] = [
     ],
   },
   {
-    slug: "nexus",
-    name: "Nexus",
-    category: "Lead Generation & CRM Automation",
+    slug: "compass",
+    name: "Compass",
+    category: "CRE Intelligence & Automation",
     filterGroup: "AI Automation",
-    industry: "B2B Sales & Agency Teams",
+    industry: "Commercial Real Estate",
     description:
-      "An AI-powered lead generation and lead management system that quantifies leads from real-time buying signals and automates the sales pipeline end to end.",
+      "An AI intelligence system that identifies companies likely to need office, retail or warehouse space within the next 6–12 months, and automates the broker's pipeline end to end.",
     challenge: {
-      title: "How most sales teams still",
-      highlight: "find & qualify leads",
+      title: "How most CRE brokers still",
+      highlight: "find space-hungry companies",
       description:
-        "For most sales teams, finding good leads means manually scrolling LinkedIn, Facebook and Instagram, copying details into a spreadsheet, and guessing who's actually worth calling. By the time a lead is found and researched, the buying window has often already closed — and reps spend more time hunting than selling.",
-      calloutTitle: "Manual hunting. Missed signals. Cold pipeline.",
-      calloutHighlight: "By the time a lead is found, the opportunity is already gone.",
+        "Most brokers still prospect the way they did 20 years ago: cold calling and door-knocking businesses in a submarket, and cross-checking URA REALIS or EdgeProp for leases that are about to expire. But an expiring lease is a reactive signal — by the time it shows up, several other brokers are already circling. Anything earlier — a funding round, a hiring spree, a new branch opening — has to be caught by manually reading business news and LinkedIn, one company at a time, or by hoping a lawyer, accountant or mover happens to mention a growing client.",
+      calloutTitle: "Reactive prospecting. Data everywhere, signal nowhere.",
+      calloutHighlight: "By the time a lease is expiring, three other brokers have already called.",
       painPoints: [
         {
-          label: "Manual social media searching",
-          description: "Checking LinkedIn, Facebook and Instagram one prospect at a time.",
+          label: "Cold calling & door-knocking",
+          description: "Calling or visiting businesses one at a time, hoping to catch one that needs space.",
+          icon: Phone,
+        },
+        {
+          label: "Reactive lease-expiration lists",
+          description: "URA REALIS and EdgeProp only flag a prospect once their lease is already about to expire.",
+          icon: Landmark,
+        },
+        {
+          label: "Referral-dependent pipeline",
+          description: "Relying on lawyers, accountants and movers to mention a client is growing.",
+          icon: Handshake,
+        },
+        {
+          label: "Manual news & LinkedIn scanning",
+          description: "Reading business journals and LinkedIn by hand for funding, hiring or expansion news.",
           icon: Search,
         },
         {
-          label: "Manual lead entry",
-          description: "Copying profile and company details into a spreadsheet by hand.",
-          icon: ClipboardList,
+          label: "Fragmented public records",
+          description: "Permit filings, business licences and news sit in separate places with nothing joining them up.",
+          icon: FileCheck,
         },
         {
-          label: "No signal detection",
-          description: "Job changes, funding rounds and hiring sprees go unnoticed.",
-          icon: AlertTriangle,
-        },
-        {
-          label: "Manual profile matching",
-          description: "Piecing together the same person across different platforms.",
-          icon: Users,
-        },
-        {
-          label: "Spreadsheet-based CRM",
-          description: "Tracking every lead's status manually in a shared sheet.",
-          icon: Table2,
-        },
-        {
-          label: "No lead scoring",
-          description: "Every lead treated the same, with no way to prioritise.",
+          label: "No opportunity scoring",
+          description: "Every company treated the same, with no way to prioritise who needs space soonest.",
           icon: Target,
         },
         {
           label: "Delayed follow-up",
-          description: "Leads go cold before a rep ever reaches out.",
+          description: "By the time a growing company is noticed, a competing broker has already made the call.",
           icon: Clock,
         },
         {
-          label: "Repetitive research",
-          description: "Hours spent researching prospects instead of selling.",
-          icon: Repeat,
+          label: "Spreadsheet-based tracking",
+          description: "Tracking every prospect's status manually in a shared sheet.",
+          icon: Table2,
         },
       ],
       flow: [
-        { label: "Search LinkedIn manually", icon: FaLinkedin, colorClassName: "text-[#0A66C2]" },
-        { label: "Check Facebook & Instagram", icon: SiInstagram, colorClassName: "text-[#E4405F]" },
+        { label: "Cold call & door-knock", icon: Phone, colorClassName: "text-[#0A66C2]" },
+        { label: "Check URA REALIS / EdgeProp leases", icon: Landmark, colorClassName: "text-[#E4405F]" },
         {
-          label: "Copy into spreadsheet",
-          icon: BsFileEarmarkSpreadsheetFill,
+          label: "Wait on referral tips",
+          icon: Handshake,
           colorClassName: "text-[#0f9d58]",
         },
-        { label: "Guess lead priority", icon: Target, colorClassName: "text-amber-500" },
-        { label: "Follow up (often late)", icon: Clock, colorClassName: "text-red-500" },
+        { label: "Manually scan news & LinkedIn", icon: Search, colorClassName: "text-amber-500" },
+        { label: "Follow up (often too late)", icon: Clock, colorClassName: "text-red-500" },
       ],
-      flowWarning: "Slow. Inconsistent. Signals missed every day.",
+      flowWarning: "Reactive. Fragmented. Signals missed every day.",
     },
     solution: {
       description:
-        "Metadox built Nexus — an AI-powered lead generation and lead management system built around a real-time Signal Feed. Autonomous AI agents and web scrapers continuously obtain lead and company data from social platforms and the public web, then analyse sentiment and buying intent behind every signal. Nexus automatically generates, enriches and matches leads, uses AI to quantify each one, and feeds a fully automated CRM pipeline that sales can act on the moment intent appears.",
+        "Compass is an AI-powered commercial real estate intelligence platform that transforms real-time business signals into qualified property opportunities. AI continuously identifies, qualifies, and prioritises companies likely to require new office, retail, or warehouse space, enabling brokers to engage prospects months before competitors.",
     },
     workflow: {
       kpis: [
-        { icon: Clock, value: "2-3 hrs/day", label: "Manual Prospecting", detail: "per sales rep", tone: "red" },
-        { icon: Zap, value: "< 5 min", label: "With Nexus", detail: "to review daily signals", tone: "green" },
-        { icon: TrendingUp, value: "80%", label: "Time Saved", detail: "on lead research", tone: "brand" },
+        { icon: Clock, value: "2-3 hrs/day", label: "Cold Calling & List-Chasing", detail: "per broker", tone: "red" },
+        { icon: Zap, value: "< 5 min", label: "With Compass", detail: "to review daily signals", tone: "green" },
+        { icon: TrendingUp, value: "80%", label: "Time Saved", detail: "vs cold calling & lease-list chasing", tone: "brand" },
       ],
       before: {
         timeValue: "2-3 hrs/day",
-        timeLabel: "per rep, spent researching",
-        warning: "Manual, inconsistent & signals missed",
-        loopLabel: "Repeat for every prospect",
+        timeLabel: "per broker, cold calling & chasing lease lists",
+        warning: "Reactive, inconsistent & signals missed",
+        loopLabel: "Repeat for every submarket",
         steps: [
-          { title: "New Prospect", description: "Sales rep identifies a target account", icon: User },
-          { title: "Search Socials Manually", description: "Check LinkedIn, Facebook, Instagram one by one", icon: Search },
-          { title: "Copy Profile Details", description: "Manually copy details into spreadsheet", icon: PenLine },
-          { title: "Guess Priority", description: "No consistent way to rank leads", icon: Target },
-          { title: "Manual Outreach", description: "Reach out without knowing buying signals", icon: Send },
-          { title: "Update Spreadsheet", description: "Manually update lead status", icon: LayoutDashboard },
+          { title: "New Submarket", description: "Broker picks a submarket to prospect in", icon: User },
+          { title: "Cold Call & Door-Knock", description: "Call or visit businesses one by one", icon: Phone },
+          { title: "Check Lease-Expiration Lists", description: "Cross-reference URA REALIS or EdgeProp for expiring leases", icon: Landmark },
+          { title: "Wait on Referral Tips", description: "Hope a lawyer, accountant or mover mentions a growing client", icon: Handshake },
+          { title: "Guess Priority", description: "No consistent way to rank who needs space soonest", icon: Target },
+          { title: "Manual Outreach", description: "Reach out without knowing any growth signals", icon: Send },
         ],
       },
       after: {
         timeValue: "< 5 min",
-        timeLabel: "to review daily qualified leads",
+        timeLabel: "to review daily qualified opportunities",
         badge: "Automated, scored & prioritised",
         customerStep: {
           title: "New Signal Detected",
-          description: "Signal Feed picks up buying intent",
+          description: "Signal Feed catches a growth signal months before the lease renewal",
           icon: Bell,
         },
-        automationLabel: "Nexus Automation",
+        automationLabel: "Compass Automation",
         automationSteps: [
-          { title: "Monitor Signal Feed", description: "Scans LinkedIn, Facebook, Instagram & news for signals", icon: Search },
+          { title: "Monitor Signal Feed", description: "Scans LinkedIn, Facebook, Instagram, news & public filings for growth signals", icon: Search },
           { title: "Match Social Profiles", description: "AI matches identities across platforms", icon: Users },
-          { title: "Enrich Lead Data", description: "Auto-fills company, role & contact details", icon: Database },
-          { title: "AI Lead Scoring", description: "Scores & prioritises based on intent signals", icon: Target },
-          { title: "Sync to CRM Pipeline", description: "Pushes qualified leads into the pipeline", icon: Handshake },
-          { title: "Notify Sales", description: "Sends an instant message alert to sales on every new lead", icon: Bell },
+          { title: "Enrich Company Data", description: "Auto-fills company, headcount & contact details", icon: Database },
+          { title: "AI Opportunity Scoring", description: "Scores & prioritises by likelihood of near-term space need — months before a lease expires", icon: Target },
+          { title: "Sync to Pipeline", description: "Pushes qualified opportunities into the pipeline", icon: Handshake },
+          { title: "Notify Broker", description: "Sends an instant alert the moment a high-intent signal lands", icon: Bell },
         ],
         reviewStep: {
           title: "Review & Engage",
-          description: "Sales reviews top leads and reaches out",
+          description: "Broker reviews top opportunities and reaches out first",
           icon: CheckCircle2,
         },
       },
@@ -1022,50 +968,50 @@ export const portfolioProjects: PortfolioProject[] = [
         {
           icon: Database,
           value: "10,000+",
-          label: "Leads Processed",
-          description: "Signal Feed continuously enriches and tracks leads at scale.",
+          label: "Companies Processed",
+          description: "Signal Feed continuously enriches and tracks companies at scale.",
           tone: "green",
         },
         {
           icon: Target,
           value: "60%",
-          label: "Higher Quality Leads",
-          description: "AI scoring surfaces the leads most likely to convert.",
+          label: "Higher Quality Opportunities",
+          description: "AI scoring surfaces the companies most likely to need space soon.",
           tone: "purple",
         },
         {
           icon: TrendingUp,
           value: "Real-time",
           label: "Pipeline Visibility",
-          description: "Every lead's status and signal history in one dashboard.",
+          description: "Every opportunity's status and signal history in one dashboard.",
           tone: "orange",
         },
       ],
     },
     businessImpact: {
       description:
-        "The impact of moving lead generation from manual research to an AI-scored Signal Feed.",
+        "The impact of moving CRE prospecting from manual research to an AI-scored Signal Feed.",
       stats: [
         {
           icon: Clock,
-          label: "Research Time Per Lead",
+          label: "Research Time Per Prospect",
           value: "20–30 min",
           detail: "↓ ~2–3 min review",
           note: "≈ 85% reduction",
         },
         {
           icon: Database,
-          label: "Leads Processed",
+          label: "Companies Processed",
           value: "10,000+",
         },
         {
           icon: Hourglass,
           label: "Estimated Time Saved",
-          value: "15+ hours/week per rep",
+          value: "15+ hours/week per broker",
         },
         {
           icon: Target,
-          label: "Lead Quality Improvement",
+          label: "Opportunity Quality Improvement",
           value: "~60% higher",
         },
         {
@@ -1081,10 +1027,10 @@ export const portfolioProjects: PortfolioProject[] = [
       ],
     },
     beforeAfterTable: [
-      { before: "Manual social media searching", after: "Automated Signal Feed" },
-      { before: "Manual profile matching", after: "AI-matched identities" },
-      { before: "Spreadsheet CRM", after: "Centralised pipeline dashboard" },
-      { before: "No lead prioritisation", after: "AI-scored & ranked leads" },
+      { before: "Cold calling & door-knocking", after: "Automated Signal Feed" },
+      { before: "Reactive lease-expiration lists", after: "Proactive growth-signal detection" },
+      { before: "Referral-dependent pipeline", after: "AI-matched identities & signals" },
+      { before: "No opportunity prioritisation", after: "AI-scored & ranked opportunities" },
     ],
     techStack: [
       { name: "Next.js", icon: SiNextdotjs, colorClassName: "text-navy" },
@@ -1093,79 +1039,17 @@ export const portfolioProjects: PortfolioProject[] = [
       { name: "Pipedrive API", icon: Handshake, colorClassName: "text-emerald-600" },
     ],
     demo: {
-      description:
-        "Explore Nexus's Signal Feed and lead pipeline — a walkthrough of how leads move from signal to qualified opportunity.",
+      embedUrl: "https://app.arcade.software/share/videos/kIyxlt47KCgFOPJXXLb2",
+      liveUrl: "https://metadox-compass.vercel.app",
     },
-    features: [
-      {
-        title: "Signal Feed",
-        icon: Zap,
-        description:
-          "Continuously monitors LinkedIn, Facebook, Instagram and news for buying signals like job changes, hiring and funding.",
-      },
-      {
-        title: "AI Scraping Agents",
-        icon: Brain,
-        description:
-          "Autonomous AI agents crawl the public web and social platforms to obtain fresh lead and company data around the clock.",
-      },
-      {
-        title: "Lead Sentiment Analysis",
-        icon: MessageSquareText,
-        description:
-          "Analyses posts, comments and reviews to gauge a lead's sentiment and buying intent before a rep ever reaches out.",
-      },
-      {
-        title: "Social Profile Matching",
-        icon: Users,
-        description:
-          "AI matches the same person across multiple social platforms into a single lead profile.",
-      },
-      {
-        title: "Lead Enrichment",
-        icon: Database,
-        description:
-          "Automatically fills in company, role, contact and firmographic data for every lead.",
-      },
-      {
-        title: "AI Lead Scoring",
-        icon: Target,
-        description:
-          "Ranks leads by buying intent so sales always knows who to contact first.",
-      },
-      {
-        title: "Centralised CRM Pipeline",
-        icon: LayoutDashboard,
-        description:
-          "A single source of truth for every lead's stage, status and history.",
-      },
-      {
-        title: "CRM Integration",
-        icon: Handshake,
-        description:
-          "Qualified leads sync automatically into the existing sales pipeline.",
-      },
-      {
-        title: "Real-Time Dashboard",
-        icon: LineChart,
-        description:
-          "Live visibility into lead volume, quality and pipeline movement.",
-      },
-      {
-        title: "Automated Alerts",
-        icon: Bell,
-        description:
-          "Sales reps are notified the moment a high-intent signal is detected.",
-      },
-    ],
     businessValue: [
       "Eliminates hours of manual prospecting each week",
-      "Surfaces high-intent leads before competitors do",
-      "Standardises lead qualification with AI scoring",
-      "Keeps CRM data accurate and up to date automatically",
-      "Improves sales team focus on the highest-value leads",
+      "Surfaces companies about to need space before competing brokers do",
+      "Standardises opportunity qualification with AI scoring",
+      "Keeps pipeline data accurate and up to date automatically",
+      "Improves broker focus on the highest-value opportunities",
       "Gives leadership real-time visibility into pipeline health",
-      "Shows how AI can turn scattered social signals into a scalable lead engine",
+      "Shows how AI can turn scattered growth signals into a scalable deal engine",
     ],
   },
 ];

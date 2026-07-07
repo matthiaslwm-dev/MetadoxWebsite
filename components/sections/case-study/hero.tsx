@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Building2, Sparkles } from "lucide-react";
+import { ArrowLeft, Building2, ExternalLink, Sparkles } from "lucide-react";
 import { Container } from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/motion";
 import type { PortfolioProject } from "@/lib/content";
 
@@ -50,14 +50,19 @@ export function CaseStudyHero({ project }: { project: PortfolioProject }) {
             </p>
           </FadeIn>
 
-          <FadeIn delay={0.32}>
-            <div className="mt-8">
-              <Button href="/#contact" size="lg">
-                Contact Metadox
-                <ArrowRight className="size-4 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
+          {project.demo.liveUrl ? (
+            <FadeIn delay={0.32}>
+              <Button
+                href={project.demo.liveUrl}
+                variant="light"
+                size="lg"
+                className="mt-8"
+              >
+                Try the Live Demo
+                <ExternalLink className="size-4" />
               </Button>
-            </div>
-          </FadeIn>
+            </FadeIn>
+          ) : null}
         </div>
       </Container>
     </section>

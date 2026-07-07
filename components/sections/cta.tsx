@@ -35,19 +35,11 @@ export function CTA() {
 
           <Reveal delay={0.1}>
             <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-              <Button
-                href={mail("Business AI Readiness Assessment")}
-                variant="light"
-                size="lg"
-              >
+              <Button href="/business-ai-readiness" variant="light" size="lg">
                 <Building2 className="size-4" />
                 Business Assessment
               </Button>
-              <Button
-                href={mail("AI Skills Readiness Assessment")}
-                variant="glass"
-                size="lg"
-              >
+              <Button href="/ai-skills-readiness" variant="glass" size="lg">
                 <Users className="size-4" />
                 Workforce Assessment
               </Button>
