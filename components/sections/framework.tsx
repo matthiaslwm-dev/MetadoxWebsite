@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, ArrowRight, Clock, TrendingUp, Zap } from "lucide-react";
+import { Check, ArrowRight, TrendingUp, Zap } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { cn } from "@/lib/utils";
@@ -20,7 +20,6 @@ const ACCENTS: Record<
     outputBg: string;
     outputBorder: string;
     outputIcon: string;
-    duration: string;
     connector: string;
     valueBg: string;
     valueIcon: string;
@@ -37,7 +36,6 @@ const ACCENTS: Record<
     outputBg: "bg-blue-50",
     outputBorder: "border-blue-100",
     outputIcon: "text-blue",
-    duration: "text-blue",
     connector: "text-blue-300",
     valueBg: "bg-blue-50",
     valueIcon: "text-blue",
@@ -53,7 +51,6 @@ const ACCENTS: Record<
     outputBg: "bg-emerald-50",
     outputBorder: "border-emerald-100",
     outputIcon: "text-emerald-600",
-    duration: "text-emerald-600",
     connector: "text-emerald-300",
     valueBg: "bg-emerald-50",
     valueIcon: "text-emerald-600",
@@ -69,7 +66,6 @@ const ACCENTS: Record<
     outputBg: "bg-amber-50",
     outputBorder: "border-amber-100",
     outputIcon: "text-amber-600",
-    duration: "text-amber-600",
     connector: "text-amber-300",
     valueBg: "bg-amber-50",
     valueIcon: "text-amber-600",
@@ -85,7 +81,6 @@ const ACCENTS: Record<
     outputBg: "bg-violet-50",
     outputBorder: "border-violet-100",
     outputIcon: "text-violet-600",
-    duration: "text-violet-600",
     connector: "text-violet-300",
     valueBg: "bg-violet-50",
     valueIcon: "text-violet-600",
@@ -215,36 +210,24 @@ export function Framework() {
                   {step.description}
                 </p>
 
-                <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
-                  <div
-                    className={cn(
-                      "flex flex-1 items-center gap-3 rounded-xl border p-4",
-                      a.outputBg,
-                      a.outputBorder,
-                    )}
-                  >
-                    <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/70">
-                      <step.output.icon className={cn("size-4", a.outputIcon)} />
-                    </span>
-                    <div>
-                      <p className="text-[0.65rem] font-semibold uppercase tracking-wide text-muted">
-                        Output
-                      </p>
-                      <p className="mt-0.5 text-sm font-semibold leading-snug text-navy">
-                        {step.output.label}
-                      </p>
-                    </div>
+                <div
+                  className={cn(
+                    "mt-6 flex items-center gap-3 rounded-xl border p-4",
+                    a.outputBg,
+                    a.outputBorder,
+                  )}
+                >
+                  <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/70">
+                    <step.output.icon className={cn("size-4", a.outputIcon)} />
+                  </span>
+                  <div>
+                    <p className="text-[0.65rem] font-semibold uppercase tracking-wide text-muted">
+                      Output
+                    </p>
+                    <p className="mt-0.5 text-sm font-semibold leading-snug text-navy">
+                      {step.output.label}
+                    </p>
                   </div>
-
-                  <p
-                    className={cn(
-                      "flex shrink-0 items-center gap-1.5 text-xs font-semibold uppercase tracking-wide",
-                      a.duration,
-                    )}
-                  >
-                    <Clock className="size-3.5" />
-                    {step.duration}
-                  </p>
                 </div>
               </div>
 

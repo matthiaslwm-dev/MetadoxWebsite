@@ -45,10 +45,9 @@ export function Hero() {
 
           <FadeIn delay={0.16}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
-              Technology should solve real business problems, not create more
-              complexity. We help organisations implement AI, modernise operations,
-              and build scalable digital solutions while equipping people with the
-              skills to embrace the future with confidence.
+              We believe technology should help businesses work better. That&apos;s
+              why we make digital transformation simple, practical, and accessible
+              for organisations of every size.
             </p>
           </FadeIn>
 

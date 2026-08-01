@@ -4,6 +4,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/motion";
 import { solutions, type Solution } from "@/lib/content";
+import { primaryCta } from "@/lib/site";
 
 function SolutionCard({ solution }: { solution: Solution }) {
   return (
@@ -57,7 +58,12 @@ export function Solutions() {
                 where automation can help, all for free.
               </p>
             </div>
-            <Button href="#contact" variant="light" size="lg" className="relative shrink-0">
+            <Button
+              href={primaryCta.href}
+              variant="light"
+              size="lg"
+              className="relative shrink-0"
+            >
               Book a Free Strategy Call
               <ArrowRight className="size-4 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
             </Button>
