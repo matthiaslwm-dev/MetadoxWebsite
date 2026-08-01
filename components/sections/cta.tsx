@@ -1,8 +1,13 @@
-import { Building2, Users, ArrowRight } from "lucide-react";
+import { CalendarCheck } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/motion";
-import { siteConfig } from "@/lib/site";
+import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
+import { primaryCta, siteConfig } from "@/lib/site";
+
+const whatsappHref = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
+  "Hello, I'd like to talk about digital transformation for my business.",
+)}`;
 
 export function CTA() {
   return (
@@ -21,48 +26,27 @@ export function CTA() {
               Get Started
             </p>
             <h2 className="mt-5 font-heading text-4xl font-bold leading-[1.06] tracking-tight sm:text-5xl md:text-[3.25rem]">
-              Ready to find out your AI readiness?
+              Your digital transformation starts with a conversation.
             </h2>
-            <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-white/75">
-              Take the first step in minutes. Discover where you stand, get a
-              tailored roadmap, and see exactly how AI can move your business
-              forward.
+            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
+              Every business is different. We take the time to understand your
+              goals, challenges, and opportunities before recommending the right
+              solution. If we&rsquo;re the right partner, we&rsquo;ll build a
+              roadmap together.
             </p>
           </Reveal>
 
           <Reveal delay={0.1}>
             <div className="mt-10 flex flex-col justify-center gap-3 sm:flex-row">
-              <Button href="/business-ai-readiness" variant="light" size="lg">
-                <Building2 className="size-4" />
-                Business Assessment
+              <Button href={whatsappHref} variant="light" size="lg">
+                <WhatsAppIcon className="size-5" />
+                Chat on WhatsApp
               </Button>
-              <Button href="/ai-skills-readiness" variant="glass" size="lg">
-                <Users className="size-4" />
-                Workforce Assessment
+              <Button href={primaryCta.href} variant="glass" size="lg">
+                <CalendarCheck className="size-4" />
+                {primaryCta.label}
               </Button>
             </div>
-
-            <div className="mt-6">
-              <a
-                href="/book"
-                className="group inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition-colors hover:text-white"
-              >
-                or book a free strategy call
-                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
-              </a>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.16}>
-            <p className="mt-10 text-sm text-white/55">
-              Prefer email?{" "}
-              <a
-                href={`mailto:${siteConfig.contact.email}`}
-                className="font-medium text-white/80 underline-offset-4 hover:text-white hover:underline"
-              >
-                {siteConfig.contact.email}
-              </a>
-            </p>
           </Reveal>
         </div>
       </Container>
