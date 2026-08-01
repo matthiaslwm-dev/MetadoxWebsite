@@ -1,23 +1,23 @@
-import { Building2, Users, Rocket, Globe2 } from "lucide-react";
+import { Target, Eye, Compass } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { Stagger, StaggerItem, Reveal } from "@/components/ui/motion";
+import { Stagger, StaggerItem } from "@/components/ui/motion";
 
-const whoWeServe = [
+const pillars = [
   {
-    icon: Building2,
-    title: "Business owners",
-    desc: "Who cannot access the technology they need to compete and grow.",
+    icon: Target,
+    title: "Our Mission",
+    desc: "Helping businesses transform with technology that is practical, scalable, and built for real-world impact.",
   },
   {
-    icon: Users,
-    title: "Workers",
-    desc: "Who are at risk of being left behind as AI reshapes every industry.",
+    icon: Eye,
+    title: "Our Vision",
+    desc: "To make digital transformation accessible to every business, enabling them to innovate, grow, and thrive in a digital-first world.",
   },
   {
-    icon: Rocket,
-    title: "Innovators",
-    desc: "Whose products could change industries if only they could reach the right markets.",
+    icon: Compass,
+    title: "Our Approach",
+    desc: "Every business is different. That's why we take the time to understand your challenges, design tailored solutions, and deliver technology that creates lasting value.",
   },
 ];
 
@@ -29,46 +29,32 @@ export function Mission() {
 
       <Container className="relative">
         <SectionHeading
-          eyebrow="Why We Exist"
+          eyebrow="Our Foundation"
           tone="dark"
           title={
             <>
-              We exist to solve{" "}
-              <span className="text-gradient-light">real problems</span>
+              Mission, vision &amp;{" "}
+              <span className="text-gradient-light">approach</span>
             </>
           }
-          description="Metadox was built for the people technology usually leaves out."
+          description="What drives Metadox and how we work with every business we partner with."
         />
 
         <Stagger className="mt-14 grid gap-4 sm:grid-cols-3">
-          {whoWeServe.map((w) => (
-            <StaggerItem key={w.title} className="h-full">
+          {pillars.map((p) => (
+            <StaggerItem key={p.title} className="h-full">
               <div className="flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur">
                 <span className="inline-flex size-11 items-center justify-center rounded-xl bg-white/10 text-blue-bright">
-                  <w.icon className="size-5" />
+                  <p.icon className="size-5" />
                 </span>
                 <h3 className="font-heading text-base font-bold text-white">
-                  {w.title}
+                  {p.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-white/70">{w.desc}</p>
+                <p className="text-sm leading-relaxed text-white/70">{p.desc}</p>
               </div>
             </StaggerItem>
           ))}
         </Stagger>
-
-        <Reveal delay={0.1}>
-          <div className="mx-auto mt-14 flex max-w-3xl flex-col items-center gap-4 text-center">
-            <Globe2 className="size-6 text-blue-bright" />
-            <p className="font-heading text-xl font-semibold leading-snug text-white sm:text-2xl">
-              We believe technology should be a bridge — between countries,
-              between skill levels, between opportunity and access.
-            </p>
-            <p className="text-base leading-relaxed text-white/70">
-              Everything we build is a step toward making that bridge open to
-              everyone.
-            </p>
-          </div>
-        </Reveal>
       </Container>
     </section>
   );

@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Mail, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { ImageLogo } from "./logo";
-import { siteConfig, footerNav } from "@/lib/site";
+import { siteConfig } from "@/lib/site";
 
 function LinkedInIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -34,6 +34,12 @@ const socials = [
   { label: "YouTube", href: siteConfig.socials.youtube, Icon: YouTubeIcon },
 ];
 
+const contactRows = [
+  { icon: Mail, label: siteConfig.contact.email, href: `mailto:${siteConfig.contact.email}` },
+  { icon: Phone, label: siteConfig.contact.phone, href: `tel:${siteConfig.contact.phone.replace(/\s+/g, "")}` },
+  { icon: MapPin, label: siteConfig.contact.address, href: undefined },
+];
+
 export function Footer() {
   const year = new Date().getFullYear();
 
@@ -43,67 +49,43 @@ export function Footer() {
       <div className="pointer-events-none absolute -left-24 top-0 h-80 w-80 rounded-full bg-blue/20 blur-[120px]" />
 
       <Container className="relative py-16 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_2fr]">
+        <div className="grid gap-12 lg:grid-cols-[1.6fr_1fr]">
           {/* Brand column */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             <ImageLogo tone="light" />
             <p className="max-w-sm text-[0.95rem] leading-relaxed text-white/65">
               {siteConfig.promise} We help organisations and their people adopt
               AI with practical strategy and implementation.
             </p>
-
-            <div className="flex flex-col gap-2.5 text-sm text-white/70">
-              <a
-                href={`mailto:${siteConfig.contact.email}`}
-                className="inline-flex items-center gap-2.5 transition-colors hover:text-white"
-              >
-                <Mail className="size-4 text-blue-bright" />
-                {siteConfig.contact.email}
-              </a>
-              <span className="inline-flex items-center gap-2.5">
-                <MapPin className="size-4 text-blue-bright" />
-                {siteConfig.contact.address}
-              </span>
-            </div>
-
-            <div className="mt-1 flex items-center gap-2.5">
-              {socials.map(({ label, href, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="inline-flex size-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10 hover:text-white"
-                >
-                  <Icon className="size-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
-          {/* Link columns */}
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
-            {footerNav.map((group) => (
-              <nav key={group.title} className="flex flex-col gap-4">
-                <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-white/40">
-                  {group.title}
-                </h3>
-                <ul className="flex flex-col gap-3">
-                  {group.links.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="group inline-flex items-center gap-1 text-sm text-white/70 transition-colors hover:text-white"
-                      >
-                        {link.label}
-                        <ArrowUpRight className="size-3.5 -translate-x-1 opacity-0 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-            ))}
+          {/* Contact column */}
+          <div className="flex flex-col gap-4">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-white/40">Contact Us</h3>
+            <ul className="flex flex-col gap-3.5">
+              {contactRows.map((row) => (
+                <li key={row.label}>
+                  {row.href ? (
+                    <a
+                      href={row.href}
+                      className="group inline-flex items-start gap-3 text-sm text-white/70 transition-colors hover:text-white"
+                    >
+                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-blue-bright">
+                        <row.icon className="size-4" />
+                      </span>
+                      <span className="pt-1.5">{row.label}</span>
+                    </a>
+                  ) : (
+                    <span className="inline-flex items-start gap-3 text-sm text-white/70">
+                      <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/10 text-blue-bright">
+                        <row.icon className="size-4" />
+                      </span>
+                      <span className="pt-1.5">{row.label}</span>
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
@@ -113,12 +95,25 @@ export function Footer() {
           </p>
           <div className="flex items-center gap-6">
             <Link href="#" className="transition-colors hover:text-white/80">
-              Privacy
+              Privacy Policy
             </Link>
             <Link href="#" className="transition-colors hover:text-white/80">
-              Terms
+              Terms of Service
             </Link>
-            <span className="text-white/40">Built in Singapore 🇸🇬</span>
+            <div className="flex items-center gap-2">
+              {socials.map(({ label, href, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="inline-flex size-8 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10 hover:text-white"
+                >
+                  <Icon className="size-3.5" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </Container>

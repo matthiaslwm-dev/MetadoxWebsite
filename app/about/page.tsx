@@ -1,28 +1,34 @@
 import type { Metadata } from "next";
+import { AboutHero } from "@/components/sections/about-hero";
 import { About } from "@/components/sections/about";
 import { Mission } from "@/components/sections/mission";
+import { Team } from "@/components/sections/team";
+import { PartnerWall } from "@/components/sections/partner-wall";
 import { CTA } from "@/components/sections/cta";
 import { siteConfig } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "About Metadox",
   description:
-    "Metadox is a Singapore-based AI digital transformation partner, combining practical strategy, implementation and workforce upskilling with a unique Singapore–China innovation bridge.",
+    "Founded in 2026, Metadox helps businesses embrace digital transformation through practical solutions — modern websites, custom software, AI automation, system integration and process optimisation.",
   alternates: { canonical: "/about" },
   openGraph: {
     type: "website",
     url: `${siteConfig.url}/about`,
     title: `About Metadox — ${siteConfig.name}`,
     description:
-      "Metadox is a Singapore-based AI digital transformation partner with a unique Singapore–China innovation bridge.",
+      "Our story, mission and the team helping businesses transform with technology that is practical, scalable and built for real-world impact.",
   },
 };
 
 export default function AboutPage() {
   return (
     <>
-      <Mission />
+      <AboutHero />
       <About />
+      <Mission />
+      <Team />
+      <PartnerWall />
       <CTA />
     </>
   );

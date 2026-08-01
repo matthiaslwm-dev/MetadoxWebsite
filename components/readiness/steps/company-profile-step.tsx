@@ -2,7 +2,7 @@
 
 import { StepShell } from "@/components/readiness/step-shell";
 import { SelectField, TextField, ChoiceGroup } from "@/components/readiness/fields";
-import { businessModels, employeeBrackets, industries } from "@/lib/readiness/options";
+import { employeeBrackets, industries } from "@/lib/readiness/options";
 import type { ReadinessAnswers } from "@/lib/readiness/types";
 
 export function CompanyProfileStep({
@@ -14,7 +14,9 @@ export function CompanyProfileStep({
   update: (patch: Partial<ReadinessAnswers>) => void;
   onNext: () => void;
 }) {
-  const valid = Boolean(answers.companyName && answers.industry && answers.employees && answers.businessModel);
+  const valid = Boolean(
+    answers.companyName && answers.industry && answers.employees && answers.websiteUrl.trim(),
+  );
 
   return (
     <StepShell
@@ -32,6 +34,12 @@ export function CompanyProfileStep({
         onChange={(v) => update({ companyName: v })}
         placeholder="e.g. Acme Pte Ltd"
       />
+      <TextField
+        label="Company website"
+        value={answers.websiteUrl}
+        onChange={(v) => update({ websiteUrl: v })}
+        placeholder="e.g. www.acme.com"
+      />
       <SelectField
         label="Industry"
         value={answers.industry}
@@ -44,15 +52,6 @@ export function CompanyProfileStep({
           options={employeeBrackets}
           value={answers.employees}
           onChange={(v) => update({ employees: v })}
-          columns={2}
-        />
-      </div>
-      <div>
-        <span className="mb-2 block text-sm font-semibold text-navy">Business model</span>
-        <ChoiceGroup
-          options={businessModels}
-          value={answers.businessModel}
-          onChange={(v) => update({ businessModel: v })}
           columns={2}
         />
       </div>

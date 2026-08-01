@@ -64,18 +64,25 @@ export function MultiChoiceGroup({
   values,
   onChange,
   columns = 2,
+  exclusiveValue,
 }: {
   options: Choice[];
   values: string[];
   onChange: (values: string[]) => void;
   columns?: 1 | 2;
+  /** A value (e.g. "none") that clears all others when picked, and is itself cleared when another option is picked. */
+  exclusiveValue?: string;
 }) {
   const toggle = (value: string) => {
     if (values.includes(value)) {
       onChange(values.filter((v) => v !== value));
-    } else {
-      onChange([...values, value]);
+      return;
     }
+    if (value === exclusiveValue) {
+      onChange([value]);
+      return;
+    }
+    onChange([...values.filter((v) => v !== exclusiveValue), value]);
   };
 
   return (

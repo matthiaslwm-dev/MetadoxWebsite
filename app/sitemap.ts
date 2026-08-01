@@ -11,13 +11,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${siteConfig.url}/grants`,
+      url: `${siteConfig.url}/about`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${siteConfig.url}/about`,
+      url: `${siteConfig.url}/pricing`,
       lastModified,
       changeFrequency: "monthly",
       priority: 0.8,

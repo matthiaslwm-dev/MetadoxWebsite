@@ -3,7 +3,7 @@ export type ReadinessAnswers = {
   companyName: string;
   industry: string;
   employees: string;
-  businessModel: string;
+  websiteUrl: string;
 
   systemsUsed: string[];
   cloudUsage: string;
@@ -29,7 +29,7 @@ export const emptyReadinessAnswers: ReadinessAnswers = {
   companyName: "",
   industry: "",
   employees: "",
-  businessModel: "",
+  websiteUrl: "",
 
   systemsUsed: [],
   cloudUsage: "",
@@ -99,3 +99,23 @@ export type ReadinessResult = {
   gaps: ReadinessGap[];
   quickWin: QuickWin;
 };
+
+export type WebsiteAuditCheck = {
+  key: string;
+  label: string;
+  passed: boolean;
+  detail: string;
+};
+
+export type WebsiteAuditResult =
+  | {
+      reachable: true;
+      url: string;
+      score: number;
+      checks: WebsiteAuditCheck[];
+    }
+  | {
+      reachable: false;
+      url: string;
+      error: string;
+    };

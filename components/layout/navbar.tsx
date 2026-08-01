@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { useLenis } from "lenis/react";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { CalendarCheck, Menu, X } from "lucide-react";
 import { ImageLogo } from "./logo";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
@@ -31,7 +31,9 @@ export function Navbar() {
     else lenis?.start();
   };
 
-  const solid = scrolled || open;
+  // Routes whose first section is light, so the transparent nav would be invisible.
+  const lightHero = pathname.startsWith("/book");
+  const solid = scrolled || open || lightHero;
 
   const isAssessmentPage =
     pathname.startsWith("/business-ai-readiness") || pathname.startsWith("/ai-skills-readiness");
@@ -71,8 +73,8 @@ export function Navbar() {
 
         <div className="hidden items-center gap-2 lg:flex">
           <Button href={primaryCta.href} size="md" variant="primary">
+            <CalendarCheck className="size-4" />
             {primaryCta.label}
-            <ArrowRight className="size-4 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
           </Button>
         </div>
 
@@ -122,8 +124,8 @@ export function Navbar() {
                 className="mt-3 w-full"
                 onClick={() => setMenu(false)}
               >
+                <CalendarCheck className="size-4" />
                 {primaryCta.label}
-                <ArrowRight className="size-4" />
               </Button>
             </Container>
           </motion.div>

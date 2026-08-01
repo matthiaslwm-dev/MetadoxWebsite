@@ -6,6 +6,7 @@ import { ScrollButton } from "@/components/ui/scroll-button";
 import { Badge } from "@/components/ui/badge";
 import { FadeIn } from "@/components/ui/motion";
 import { heroFeatures } from "@/lib/content";
+import { primaryCta } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -31,7 +32,7 @@ export function Hero() {
           <FadeIn>
             <Badge tone="dark" className="w-fit">
               <Sparkles className="size-3.5 text-blue-bright" />
-              Digital Transformation Consultancy
+              Digital Transformation Partner
             </Badge>
           </FadeIn>
 
@@ -44,16 +45,17 @@ export function Hero() {
 
           <FadeIn delay={0.16}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/80">
-              Many businesses and individuals know AI will shape the future,
-              but don&apos;t know where to start. We turn AI into practical
-              solutions, skills, and opportunities that create real impact.
+              Technology should solve real business problems, not create more
+              complexity. We help organisations implement AI, modernise operations,
+              and build scalable digital solutions while equipping people with the
+              skills to embrace the future with confidence.
             </p>
           </FadeIn>
 
           <FadeIn delay={0.24}>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="#contact" size="lg">
-                Book Free Consultation
+              <Button href={primaryCta.href} size="lg">
+                Book a Free Strategy Call
                 <ArrowRight className="size-4 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
               </Button>
               <ScrollButton targetId="readiness" size="lg" variant="glass">

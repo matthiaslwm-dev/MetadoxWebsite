@@ -4,9 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/motion";
 import { siteConfig } from "@/lib/site";
 
-const mail = (subject: string) =>
-  `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(subject)}`;
-
 export function CTA() {
   return (
     <section
@@ -47,10 +44,10 @@ export function CTA() {
 
             <div className="mt-6">
               <a
-                href={mail("Free AI Consultation")}
+                href="/book"
                 className="group inline-flex items-center gap-1.5 text-sm font-medium text-white/80 transition-colors hover:text-white"
               >
-                or book a free consultation
+                or book a free strategy call
                 <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5" />
               </a>
             </div>

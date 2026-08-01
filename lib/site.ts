@@ -15,6 +15,8 @@ export const siteConfig = {
   contact: {
     email: "hello@metadox.ai",
     phone: "+65 6000 0000",
+    /** Digits only, country code first — used to build wa.me links. */
+    whatsapp: "6560000000",
     address: "Singapore",
   },
   socials: {
@@ -26,46 +28,17 @@ export const siteConfig = {
 
 /** Primary CTA reused across the site. */
 export const primaryCta = {
-  label: "Book Free Consultation",
-  href: "/?section=contact",
+  label: "Book a Free Discovery Call",
+  href: "/book",
 } as const;
+
+/** Calendly event that powers the booking page. */
+export const calendlyUrl = "https://calendly.com/matthiaslwm/30min";
 
 /** Top-level navigation. Query params (not `#`) scroll to homepage sections. */
 export const navItems = [
   { label: "About", href: "/about" },
-  { label: "Framework", href: "/?section=framework" },
   { label: "Services", href: "/?section=solutions" },
+  { label: "Pricing", href: "/pricing" },
   { label: "Projects", href: "/projects" },
-  { label: "Grants", href: "/grants" },
-] as const;
-
-/** Footer link groups. */
-export const footerNav = [
-  {
-    title: "Company",
-    links: [
-      { label: "About Metadox", href: "/about" },
-      { label: "Our Framework", href: "#framework" },
-      { label: "Contact", href: "#contact" },
-    ],
-  },
-  {
-    title: "Services",
-    links: [
-      { label: "AI Workflow Automation", href: "#solutions" },
-      { label: "Cloud Data Migration", href: "#solutions" },
-      { label: "AI Agents and Chatbots", href: "#solutions" },
-      { label: "Software Development", href: "#solutions" },
-      { label: "Systems Integration", href: "#solutions" },
-    ],
-  },
-  {
-    title: "Explore",
-    links: [
-      { label: "Projects", href: "/projects" },
-      { label: "Grants & Funding", href: "/grants" },
-      { label: "AI Readiness Assessment", href: "#readiness" },
-      { label: "Resources", href: "#" },
-    ],
-  },
 ] as const;

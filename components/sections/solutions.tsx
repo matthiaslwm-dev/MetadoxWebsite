@@ -58,7 +58,7 @@ export function Solutions() {
               </p>
             </div>
             <Button href="#contact" variant="light" size="lg" className="relative shrink-0">
-              Book Free Consultation
+              Book a Free Strategy Call
               <ArrowRight className="size-4 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
             </Button>
           </div>

@@ -10,12 +10,12 @@ export function ReportCta() {
       </h2>
       <p className="mx-auto mt-4 max-w-xl text-[0.95rem] leading-relaxed text-white/75">
         Your assessment shows your current AI readiness and the first improvement opportunity. In a
-        complimentary strategy session, Metadox will review your results, validate the gaps, and recommend
+        free strategy call, Metadox will review your results, validate the gaps, and recommend
         the most practical digitalisation and AI path for your business.
       </p>
       <div className="mt-8 flex justify-center">
         <Button href={primaryCta.href} variant="light" size="lg">
-          Book Complimentary Strategy Session
+          Book a Free Strategy Call
           <ArrowRight className="size-4" />
         </Button>
       </div>

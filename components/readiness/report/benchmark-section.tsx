@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import { nationalAiAdoptionContext } from "@/lib/readiness/benchmarks";
 import type { ReadinessResult } from "@/lib/readiness/types";
 
 function BenchmarkBar({ label, value, tone }: { label: string; value: number; tone: string }) {
@@ -25,6 +26,21 @@ export function BenchmarkSection({ benchmark }: { benchmark: ReadinessResult["be
         <BenchmarkBar label="Singapore Industry Average" value={benchmark.industryAverage} tone="bg-navy/40" />
         <BenchmarkBar label="Top Performers" value={benchmark.topPerformers} tone="bg-emerald-500" />
       </div>
+      <p className="mt-5 text-xs leading-relaxed text-muted">
+        For context: only {nationalAiAdoptionContext.smeAdoptionRate}% of Singapore SMEs had adopted AI as of{" "}
+        {nationalAiAdoptionContext.year}, up from {nationalAiAdoptionContext.smeAdoptionRatePrior}% the year
+        before, versus {nationalAiAdoptionContext.enterpriseAdoptionRate}% of larger enterprises (
+        <a
+          href={nationalAiAdoptionContext.sourceUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-navy"
+        >
+          {nationalAiAdoptionContext.source}
+        </a>
+        ). The industry average and top-performer figures above are Metadox&apos;s own modeled estimate,
+        calibrated to that data, rather than an official government per-industry score.
+      </p>
     </Card>
   );
 }

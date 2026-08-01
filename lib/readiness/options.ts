@@ -21,13 +21,6 @@ export const employeeBrackets: Choice[] = [
   { value: "500+", label: "500+" },
 ];
 
-export const businessModels: Choice[] = [
-  { value: "b2b", label: "B2B" },
-  { value: "b2c", label: "B2C" },
-  { value: "b2b-b2c", label: "Both B2B & B2C" },
-  { value: "other", label: "Other" },
-];
-
 export const systemsUsedOptions: Choice[] = [
   { value: "spreadsheets", label: "Spreadsheets (Excel / Google Sheets)" },
   { value: "accounting", label: "Accounting software" },

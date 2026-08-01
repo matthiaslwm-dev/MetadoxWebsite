@@ -38,7 +38,6 @@ import {
   Award,
   Compass,
   ClipboardList,
-  Workflow,
   Landmark,
   CreditCard,
   Search,
@@ -368,14 +367,6 @@ export const grants: Grant[] = [
     description:
       "Use SkillsFuture Credit for approved courses to build in-demand, future-ready AI skills.",
   },
-];
-
-export const grantProcess: { label: string; icon: LucideIcon }[] = [
-  { label: "Assess eligibility", icon: Search },
-  { label: "Recommend grants", icon: Compass },
-  { label: "Application support", icon: FileCheck },
-  { label: "Implementation", icon: Workflow },
-  { label: "Training", icon: GraduationCap },
 ];
 
 /* ------------------------------ Case Studies ------------------------------ */

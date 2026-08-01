@@ -31,7 +31,12 @@ export function AiAdoptionStep({
     >
       <div>
         <span className="mb-2 block text-sm font-semibold text-navy">Which AI tools does your business currently use?</span>
-        <MultiChoiceGroup options={aiToolsOptions} values={answers.aiToolsUsed} onChange={(v) => update({ aiToolsUsed: v })} />
+        <MultiChoiceGroup
+          options={aiToolsOptions}
+          values={answers.aiToolsUsed}
+          onChange={(v) => update({ aiToolsUsed: v })}
+          exclusiveValue="none"
+        />
       </div>
       <div>
         <span className="mb-2 block text-sm font-semibold text-navy">How often do staff use AI tools in their work?</span>

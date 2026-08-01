@@ -13,7 +13,8 @@ import { PainPointStep } from "@/components/readiness/steps/pain-point-step";
 import { LoadingScreen } from "@/components/readiness/loading-screen";
 import { Report } from "@/components/readiness/report/report";
 import { computeReadiness } from "@/lib/readiness/scoring";
-import { emptyReadinessAnswers, type ReadinessAnswers } from "@/lib/readiness/types";
+import { emptyReadinessAnswers, type ReadinessAnswers, type WebsiteAuditResult } from "@/lib/readiness/types";
+import { fetchWebsiteAudit } from "@/lib/readiness/website-audit-client";
 
 const TOTAL_STEPS = 5;
 
@@ -23,6 +24,8 @@ export function AssessmentFlow() {
   const [phase, setPhase] = useState<Phase>("form");
   const [stepIndex, setStepIndex] = useState(0);
   const [answers, setAnswers] = useState<ReadinessAnswers>(emptyReadinessAnswers);
+  const [websiteAudit, setWebsiteAudit] = useState<WebsiteAuditResult | null>(null);
+  const [auditPromise, setAuditPromise] = useState<Promise<WebsiteAuditResult> | null>(null);
 
   const update = (patch: Partial<ReadinessAnswers>) => setAnswers((prev) => ({ ...prev, ...patch }));
 
@@ -31,6 +34,7 @@ export function AssessmentFlow() {
   const goNext = () => {
     if (stepIndex === TOTAL_STEPS - 1) {
       setPhase("loading");
+      setAuditPromise(fetchWebsiteAudit(answers.websiteUrl));
       return;
     }
     setStepIndex((i) => i + 1);
@@ -67,9 +71,18 @@ export function AssessmentFlow() {
           </>
         ) : null}
 
-        {phase === "loading" ? <LoadingScreen onDone={() => setPhase("report")} /> : null}
+        {phase === "loading" ? (
+          <LoadingScreen
+            onDone={async () => {
+              setWebsiteAudit(auditPromise ? await auditPromise : null);
+              setPhase("report");
+            }}
+          />
+        ) : null}
 
-        {phase === "report" ? <Report companyName={answers.companyName} result={result} /> : null}
+        {phase === "report" ? (
+          <Report companyName={answers.companyName} result={result} websiteAudit={websiteAudit} />
+        ) : null}
       </Container>
     </div>
   );

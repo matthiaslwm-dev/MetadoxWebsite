@@ -4,8 +4,9 @@ import { ScoreGauge, type ScoreTone } from "@/components/readiness/report/score-
 import { BenchmarkSection } from "@/components/readiness/report/benchmark-section";
 import { GapsSection } from "@/components/readiness/report/gaps-section";
 import { QuickWinSection } from "@/components/readiness/report/quick-win-section";
+import { WebsiteAuditSection } from "@/components/readiness/report/website-audit-section";
 import { ReportCta } from "@/components/readiness/report/report-cta";
-import type { ReadinessResult, ReadinessStage } from "@/lib/readiness/types";
+import type { ReadinessResult, ReadinessStage, WebsiteAuditResult } from "@/lib/readiness/types";
 
 const stageTone: Record<ReadinessStage, ScoreTone> = {
   "Not Ready": "red",
@@ -14,7 +15,15 @@ const stageTone: Record<ReadinessStage, ScoreTone> = {
   "AI Ready": "green",
 };
 
-export function Report({ companyName, result }: { companyName: string; result: ReadinessResult }) {
+export function Report({
+  companyName,
+  result,
+  websiteAudit,
+}: {
+  companyName: string;
+  result: ReadinessResult;
+  websiteAudit: WebsiteAuditResult | null;
+}) {
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-col gap-8">
       <Reveal>
@@ -59,7 +68,13 @@ export function Report({ companyName, result }: { companyName: string; result: R
         <QuickWinSection quickWin={result.quickWin} />
       </Reveal>
 
-      <Reveal delay={0.25}>
+      {websiteAudit ? (
+        <Reveal delay={0.25}>
+          <WebsiteAuditSection audit={websiteAudit} />
+        </Reveal>
+      ) : null}
+
+      <Reveal delay={0.3}>
         <ReportCta />
       </Reveal>
     </div>
