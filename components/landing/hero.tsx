@@ -188,8 +188,6 @@ export function LandingHero() {
   // gets a little top padding so the optical centre sits below the pill.
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-6 pt-20">
-      {/* Glow bleeding down from the top edge. */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(1,94,232,0.06),transparent_60%)]" />
 
       {/*
         Horizontal offsets are the reference's own, measured against the full

@@ -24,7 +24,7 @@ export const landingHero = {
   subhead:
     "We turn repetitive work, inefficient processes, and operational bottlenecks into intelligent systems that save you time, reduce costs, and give your business more room to grow.",
   stats: [
-    { value: "1–2 Weeks", label: "Implementation" },
+    { value: "1–2 Weeks", label: "Deployment" },
     { value: "24/7", label: "AI Automation" },
     { value: "End-to-End", label: "Strategy to Launch" },
   ],
