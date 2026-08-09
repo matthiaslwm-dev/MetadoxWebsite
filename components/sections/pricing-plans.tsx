@@ -9,7 +9,7 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/motion";
 import { WhatsAppIcon } from "@/components/ui/whatsapp-icon";
-import { siteConfig } from "@/lib/site";
+import { primaryCta, siteConfig } from "@/lib/site";
 
 const whatsappHref = `https://wa.me/${siteConfig.contact.whatsapp}?text=${encodeURIComponent(
   "Hello, I'd like to learn more about your pricing.",
@@ -107,7 +107,7 @@ export function PricingPlans() {
                 </div>
 
                 <div className="mt-6 flex flex-col gap-3">
-                  <Button href="/book" variant="light" size="lg">
+                  <Button href={primaryCta.href} variant="light" size="lg">
                     <CalendarCheck className="size-4" />
                     Book a FREE Strategy Call
                   </Button>
@@ -160,7 +160,7 @@ export function PricingPlans() {
               </div>
 
               <div className="mt-auto pt-6">
-                <Button href="/book" size="lg" className="w-full">
+                <Button href={primaryCta.href} size="lg" className="w-full">
                   <CalendarCheck className="size-4" />
                   Book a Strategy Call
                 </Button>

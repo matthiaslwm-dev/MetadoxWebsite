@@ -56,6 +56,9 @@ function AnchorScroll() {
   return null;
 }
 
+/** Routes that host `?section=` scroll targets. */
+const SECTION_ROUTES = ["/", "/legacy-home"];
+
 /** How long to keep re-anchoring after landing, while images above settle. */
 const SETTLE_MS = 1500;
 /** How long to wait for the target section to mount before giving up. */
@@ -80,12 +83,12 @@ function SectionScrollFromQuery() {
   const previousPathname = useRef<string | null>(null);
 
   useEffect(() => {
-    // Already on the homepage: glide. Arriving from another route: jump, rather
-    // than racing past every section above the target.
-    const smooth = previousPathname.current === "/";
+    // Already on the section-hosting route: glide. Arriving from another route:
+    // jump, rather than racing past every section above the target.
+    const smooth = previousPathname.current === pathname;
     previousPathname.current = pathname;
 
-    if (!section || pathname !== "/") return;
+    if (!section || !SECTION_ROUTES.includes(pathname)) return;
 
     let frame = 0;
     let landedAt = 0;
@@ -159,6 +162,15 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
         duration: 1.15,
         wheelMultiplier: 1,
         touchMultiplier: 1.6,
+        // Every route scrolls natively, matching the landing page: its reference
+        // design uses no smooth-scroll library at all, and having one page feel
+        // different from the rest was the inconsistency.
+        //
+        // Lenis stays mounted so `useLenis` consumers keep working; only the
+        // wheel/touch smoothing is off. Programmatic `scrollTo` still animates,
+        // which is what anchor links and `?section=` land with.
+        smoothWheel: false,
+        syncTouch: false,
       }}
     >
       <MotionConfig reducedMotion="user">

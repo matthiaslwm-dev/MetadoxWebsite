@@ -37,6 +37,27 @@
   --animate-marquee: marquee 38s linear infinite;
   --animate-float: float 7s ease-in-out infinite;
   --animate-aurora: aurora 16s ease-in-out infinite;
+
+  /* ------------------------------------------------------------
+     LANDING PAGE PALETTE (`lp-*`)
+     Scoped to the homepage only. Deliberately separate from the
+     navy brand palette above so the rest of the site is unaffected.
+     ------------------------------------------------------------ */
+  --color-lp-background: hsl(0 0% 100%);
+  --color-lp-foreground: hsl(220 20% 10%);
+  --color-lp-card: hsl(0 0% 100%);
+  /* Metadox brand blue, in place of the reference's sky blue. */
+  --color-lp-primary: #015ee8;
+  --color-lp-primary-foreground: hsl(0 0% 100%);
+  --color-lp-muted: hsl(210 20% 96%);
+  --color-lp-muted-foreground: hsl(215 16% 47%);
+  --color-lp-border: hsl(214 32% 91%);
+
+  --shadow-lp-soft: 0 4px 20px -4px hsl(220 20% 10% / 0.08);
+  --shadow-lp-hover: 0 8px 30px -8px rgb(1 94 232 / 0.25);
+
+  --animate-lp-fade-in: lp-fade-in 0.6s ease-out forwards;
+  --animate-lp-fade-in-up: lp-fade-in-up 0.8s ease-out forwards;
 }
 
 /* Fonts wired from next/font — inline so utilities resolve the runtime var */
@@ -60,6 +81,14 @@
 }
 @keyframes dash {
   to { stroke-dashoffset: -1000; }
+}
+@keyframes lp-fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes lp-fade-in-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* ============================================================
@@ -111,18 +140,22 @@
     border-radius: 4px;
   }
 
-  /* Custom scrollbar (desktop) */
+  /* Custom scrollbar (desktop): solid grey capsule, transparent track.
+     The transparent border + padding-box clip insets the thumb without
+     painting a track colour, so it works over light and dark sections. */
   @media (pointer: fine) {
-    ::-webkit-scrollbar { width: 11px; height: 11px; }
+    ::-webkit-scrollbar { width: 14px; height: 14px; }
     ::-webkit-scrollbar-track { background: transparent; }
     ::-webkit-scrollbar-thumb {
-      background: color-mix(in srgb, var(--color-navy) 22%, transparent);
+      background: #9ca3af;
       border-radius: 999px;
-      border: 3px solid var(--color-canvas);
+      border: 3px solid transparent;
+      background-clip: padding-box;
     }
-    ::-webkit-scrollbar-thumb:hover {
-      background: color-mix(in srgb, var(--color-navy) 40%, transparent);
-    }
+    ::-webkit-scrollbar-thumb:hover { background: #6b7280; background-clip: padding-box; }
+
+    /* Firefox */
+    html { scrollbar-width: thin; scrollbar-color: #9ca3af transparent; }
   }
 }
 
@@ -141,6 +174,36 @@
 /* Gradient text */
 .text-gradient {
   background-image: linear-gradient(120deg, #015ee8 0%, #173d8b 55%, #03153b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+/* Landing page runs on Inter throughout, overriding the site's Space Grotesk
+   headings. Scoped to the route root so no other page is affected. */
+.lp-root,
+.lp-root h1,
+.lp-root h2,
+.lp-root h3,
+.lp-root h4 {
+  font-family: var(--font-sans);
+}
+
+/* Landing-page hero gradient, matching the `lp-*` palette: Metadox blue
+   lifting into cyan.
+
+   Left to right rather than diagonal, so every glyph on the line sits at the
+   same point in the ramp regardless of its height. The travel is mostly in
+   lightness (deep brand blue into a bright cyan), which is what makes the
+   sweep read at a glance instead of looking like one flat blue. The cyan is
+   held back to the last third so the bulk of the line stays at full contrast
+   on white. */
+.text-gradient-lp {
+  background-image: linear-gradient(
+    90deg,
+    #015ee8 0%,
+    #2b7fff 55%,
+    #22d3ee 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

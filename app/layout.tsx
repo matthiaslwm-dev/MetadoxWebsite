@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/site";
 import { SmoothScroll } from "@/components/providers/lenis-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { SiteChrome } from "@/components/layout/site-chrome";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -90,9 +91,13 @@ export default function RootLayout({
           >
             Skip to content
           </a>
-          <Navbar />
+          <SiteChrome>
+            <Navbar />
+          </SiteChrome>
           <main id="main">{children}</main>
-          <Footer />
+          <SiteChrome>
+            <Footer />
+          </SiteChrome>
         </SmoothScroll>
       </body>
     </html>

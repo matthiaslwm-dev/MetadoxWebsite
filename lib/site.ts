@@ -14,9 +14,9 @@ export const siteConfig = {
   locale: "en_SG",
   contact: {
     email: "hello@metadox.ai",
-    phone: "+65 6000 0000",
+    phone: "+65 8182 0759",
     /** Digits only, country code first — used to build wa.me links. */
-    whatsapp: "6560000000",
+    whatsapp: "6581820759",
     address: "Singapore",
   },
   socials: {
@@ -29,16 +29,22 @@ export const siteConfig = {
 /** Primary CTA reused across the site. */
 export const primaryCta = {
   label: "Book a Free Discovery Call",
-  href: "/book",
+  href: "/booking",
 } as const;
 
 /** Calendly event that powers the booking page. */
 export const calendlyUrl = "https://calendly.com/matthiaslwm/30min";
 
-/** Top-level navigation. Query params (not `#`) scroll to homepage sections. */
+/**
+ * Top-level navigation. Query params (not `#`) scroll to page sections.
+ *
+ * `Services` points at the archived homepage until the new landing page grows
+ * its own solutions section.
+ */
 export const navItems = [
   { label: "About", href: "/about" },
-  { label: "Services", href: "/?section=solutions" },
+  { label: "Services", href: "/legacy-home?section=solutions" },
+  { label: "GEO", href: "/geo" },
   { label: "Pricing", href: "/pricing" },
   { label: "Projects", href: "/projects" },
 ] as const;

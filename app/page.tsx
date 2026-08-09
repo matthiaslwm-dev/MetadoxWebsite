@@ -1,11 +1,10 @@
-import { Hero } from "@/components/sections/hero";
-import { Readiness } from "@/components/sections/readiness";
-import { CostOfWaiting } from "@/components/sections/cost-of-waiting";
-import { Framework } from "@/components/sections/framework";
-import { Solutions } from "@/components/sections/solutions";
-import { CaseStudies } from "@/components/sections/case-studies";
-import { Technologies } from "@/components/sections/technologies";
-import { CTA } from "@/components/sections/cta";
+import { LandingHeader } from "@/components/landing/header";
+import { LandingHero } from "@/components/landing/hero";
+import { LandingWhatWeBuild } from "@/components/landing/what-we-build";
+import { LandingProcess } from "@/components/landing/process";
+import { LandingTestimonials } from "@/components/landing/testimonials";
+import { LandingCtaBanner } from "@/components/landing/cta-banner";
+import { LandingFooter } from "@/components/landing/footer";
 import { siteConfig } from "@/lib/site";
 
 const jsonLd = {
@@ -43,19 +42,20 @@ const jsonLd = {
 
 export default function Home() {
   return (
-    <>
+    <div className="lp-root relative min-h-screen bg-lp-background">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Hero />
-      <Readiness />
-      <CostOfWaiting />
-      <Framework />
-      <Solutions />
-      <CaseStudies />
-      <Technologies />
-      <CTA />
-    </>
+      <LandingHeader />
+      <div>
+        <LandingHero />
+        <LandingWhatWeBuild />
+        <LandingProcess />
+        <LandingTestimonials />
+        <LandingCtaBanner />
+      </div>
+      <LandingFooter />
+    </div>
   );
 }
