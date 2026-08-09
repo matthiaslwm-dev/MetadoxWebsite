@@ -347,7 +347,7 @@ export function LandingHero() {
             narrower than the container, and the line would render as a slice
             out of the middle of the ramp instead of the whole sweep.
           */}
-          <span className="mx-auto my-2 block w-fit text-gradient-lp text-2xl leading-[1.2] sm:text-4xl md:text-5xl lg:text-6xl">
+          <span className="mx-auto my-2 block w-fit text-lp-primary text-2xl leading-[1.2] sm:text-4xl md:text-5xl lg:text-6xl">
             {landingHero.gradientLine}
           </span>
           {landingHero.headline}

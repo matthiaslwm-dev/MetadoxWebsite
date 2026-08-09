@@ -19,30 +19,46 @@ export function LandingTestimonials() {
         </Reveal>
 
         <Stagger className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
-            <StaggerItem
-              key={index}
-              className="flex h-full flex-col rounded-2xl border border-lp-border bg-lp-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-lp-primary/30 hover:shadow-lg motion-reduce:transform-none motion-reduce:transition-none"
-            >
-              <Quote className="mb-4 h-8 w-8 text-lp-primary/40" />
-              <blockquote className="mb-6 grow text-base leading-relaxed text-lp-foreground">
-                &ldquo;{testimonial.quote}&rdquo;
-              </blockquote>
-              <div className="border-t border-lp-border pt-4">
-                <p className="font-semibold text-lp-foreground">
-                  {testimonial.name}
-                </p>
+          {testimonials.map((testimonial, index) =>
+            testimonial.comingSoon ? (
+              <StaggerItem
+                key={index}
+                className="flex h-full flex-col items-center justify-center rounded-2xl border border-dashed border-lp-border bg-lp-card/40 p-6 text-center opacity-60"
+              >
+                <Quote className="mb-4 h-8 w-8 text-lp-muted-foreground/40" />
                 <p className="text-sm text-lp-muted-foreground">
-                  {testimonial.title}
+                  {testimonial.quote}
                 </p>
-                {testimonial.subtitle && (
-                  <p className="text-sm text-lp-primary">
-                    {testimonial.subtitle}
-                  </p>
-                )}
-              </div>
-            </StaggerItem>
-          ))}
+              </StaggerItem>
+            ) : (
+              <StaggerItem
+                key={index}
+                className="flex h-full flex-col rounded-2xl border border-lp-border bg-lp-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-lp-primary/30 hover:shadow-lg motion-reduce:transform-none motion-reduce:transition-none"
+              >
+                <Quote className="mb-4 h-8 w-8 text-lp-primary/40" />
+                <blockquote className="mb-6 grow text-base leading-relaxed text-lp-foreground">
+                  &ldquo;{testimonial.quote}&rdquo;
+                </blockquote>
+                <div className="border-t border-lp-border pt-4">
+                  {testimonial.name && (
+                    <p className="font-semibold text-lp-foreground">
+                      {testimonial.name}
+                    </p>
+                  )}
+                  {testimonial.title && (
+                    <p className="text-sm text-lp-muted-foreground">
+                      {testimonial.title}
+                    </p>
+                  )}
+                  {testimonial.subtitle && (
+                    <p className="text-sm text-lp-primary">
+                      {testimonial.subtitle}
+                    </p>
+                  )}
+                </div>
+              </StaggerItem>
+            ),
+          )}
         </Stagger>
       </div>
     </section>

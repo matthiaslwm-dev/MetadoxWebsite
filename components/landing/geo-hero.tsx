@@ -24,9 +24,7 @@ export function GeoHero() {
           style={{ animationDelay: "0.2s" }}
           className="mb-6 animate-lp-fade-in px-2 text-xl font-extrabold leading-tight text-lp-foreground opacity-0 sm:text-2xl md:text-3xl lg:text-4xl"
         >
-          {/* Painted through background-clip: text, so it needs both an explicit
-              leading and a shrink-to-fit box. See the landing hero for why. */}
-          <span className="mx-auto my-2 block w-fit text-gradient-lp text-2xl leading-[1.2] sm:text-4xl md:text-5xl lg:text-6xl">
+          <span className="mx-auto my-2 block w-fit text-lp-primary text-2xl leading-[1.2] sm:text-4xl md:text-5xl lg:text-6xl">
             {geoHero.gradientLine}
           </span>
           {geoHero.headline}

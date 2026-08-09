@@ -152,33 +152,28 @@ export const processSteps: ProcessStep[] = [
 
 export type Testimonial = {
   quote: string;
-  name: string;
+  name?: string;
   title: string;
   subtitle?: string;
+  comingSoon?: boolean;
 };
 
-/**
- * PLACEHOLDER COPY — replace with real, attributable client quotes before this
- * page goes live. Nothing here represents an actual endorsement.
- */
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Placeholder quote. Replace with a real client's words about the outcome Metadox delivered.",
-    name: "Client Name",
-    title: "Role, Company",
-    subtitle: "Optional third line",
+      "A lot of the work I used to do manually is now taken care of. It saves me hours every week and gives me more time to actually focus on my clients.",
+    name: "John Tan",
+    title: "Wealth Manager, AIA",
   },
   {
-    quote:
-      "Placeholder quote. A longer one sits well in the middle card: use it for the client who can speak to how the engagement was run, not just the result.",
-    name: "Client Name",
-    title: "Role, Company",
+    quote: "More client stories coming soon.",
+    title: "",
+    comingSoon: true,
   },
   {
-    quote: "Placeholder quote. Short and punchy works well here.",
-    name: "Client Name",
-    title: "Role, Company",
+    quote: "More client stories coming soon.",
+    title: "",
+    comingSoon: true,
   },
 ];
 
