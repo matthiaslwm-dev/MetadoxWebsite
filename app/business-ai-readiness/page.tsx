@@ -10,9 +10,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${siteConfig.url}/business-ai-readiness`,
-    title: `Business AI Readiness Assessment — ${siteConfig.name}`,
+    title: `Business AI Readiness Assessment | ${siteConfig.name}`,
     description:
-      "See exactly where your business stands on AI readiness — and what to fix first.",
+      "See exactly where your business stands on AI readiness, and what to fix first.",
   },
 };
 

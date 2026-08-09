@@ -7,12 +7,12 @@ import { siteConfig } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Real business problems Metadox has solved for clients — workflow automation, web development, data migration, systems integration and more.",
+    "Real business problems Metadox has solved for clients: workflow automation, web development, data migration, systems integration and more.",
   alternates: { canonical: "/projects" },
   openGraph: {
     type: "website",
     url: `${siteConfig.url}/projects`,
-    title: `Projects — ${siteConfig.name}`,
+    title: `Projects | ${siteConfig.name}`,
     description:
       "Real business problems Metadox has solved for clients.",
   },

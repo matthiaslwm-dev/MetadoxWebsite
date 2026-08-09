@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Metadox — AI Digital Transformation";
+export const alt = "Metadox: AI Digital Transformation";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -65,7 +65,7 @@ export default function OpengraphImage() {
 
         <div style={{ display: "flex", alignItems: "center" }}>
           <span style={{ color: "rgba(255,255,255,0.82)", fontSize: 26 }}>
-            Helping businesses & people become AI ready — Singapore × China
+            Helping businesses & people become AI ready: Singapore × China
           </span>
         </div>
       </div>

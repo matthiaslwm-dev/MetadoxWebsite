@@ -32,7 +32,7 @@ export async function generateMetadata({
     openGraph: {
       type: "article",
       url: `${siteConfig.url}/projects/${project.slug}`,
-      title: `${project.name} — ${siteConfig.name}`,
+      title: `${project.name} | ${siteConfig.name}`,
       description: project.description,
     },
   };

@@ -9,8 +9,8 @@ export const siteConfig = {
   tagline: "Digital Transformation Consultancy",
   promise: "Helping Businesses & People Become AI Ready.",
   description:
-    "Metadox is a digital transformation consultancy helping businesses adopt AI and modernise their technology — from workflow automation and software development to systems integration, data and workforce upskilling.",
-  url: "https://www.metadox.ai",
+    "We turn repetitive work, inefficient processes, and operational bottlenecks into intelligent systems that save you time, reduce costs, and give your business more room to grow.",
+  url: "https://www.metadox.sg",
   locale: "en_SG",
   contact: {
     email: "hello@metadox.ai",
