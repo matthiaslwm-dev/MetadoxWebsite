@@ -7,6 +7,8 @@
  * of teasers.
  */
 
+import type { LucideIcon } from "lucide-react";
+import { Bot, Handshake } from "lucide-react";
 import type { IconType } from "react-icons";
 import { BsOpenai } from "react-icons/bs";
 import {
@@ -45,7 +47,7 @@ export type ShowcaseProject = {
   filterGroup: string;
   impactLabel: string;
   impactHeadline: string;
-  tags: { name: string; icon: IconType; colorClassName: string }[];
+  tags: { name: string; icon: LucideIcon | IconType; colorClassName: string }[];
   challenge: string;
   solution: string;
   ctaLabel: string;
@@ -94,5 +96,26 @@ export const showcaseProjects: ShowcaseProject[] = [
       "Metadox built Vero, an AI-powered content intelligence platform that researches relevant financial topics, identifies useful updates, and turns them into clear, client-ready content. Advisors can review, edit, and approve drafts before publishing, giving them a faster and more consistent way to stay connected with their clients.",
     ctaLabel: "View Case Study",
     ctaHref: "https://vero-app-six.vercel.app/",
+  },
+  {
+    slug: "compass",
+    name: "Compass",
+    category: "CRE Intelligence & Automation",
+    industry: "Commercial Real Estate",
+    filterGroup: "AI Automation",
+    impactLabel: "Impact",
+    impactHeadline: "Hours of cold calling turned into minutes",
+    tags: [
+      { name: "Next.js", icon: SiNextdotjs, colorClassName: "text-navy" },
+      { name: "Supabase", icon: SiSupabase, colorClassName: "text-[#3ECF8E]" },
+      { name: "Apify", icon: Bot, colorClassName: "text-violet-600" },
+      { name: "Pipedrive API", icon: Handshake, colorClassName: "text-emerald-600" },
+    ],
+    challenge:
+      "Brokers relied on cold calling, door-knocking, and reactive lease-expiration lists, missing companies that were quietly outgrowing their space until a competing broker already had months of head start.",
+    solution:
+      "Metadox built Compass, an AI-powered commercial real estate intelligence platform that scans hiring, funding, and expansion signals to flag companies needing space months before a lease even comes up, then routes the strongest opportunities straight into an automated pipeline.",
+    ctaLabel: "View Case Study",
+    ctaHref: "/projects/compass",
   },
 ];
