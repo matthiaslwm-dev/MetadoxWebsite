@@ -14,7 +14,7 @@ export function LandingTestimonials() {
             What Our Clients Say
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-lp-muted-foreground">
-            Trusted by founders and executives who value results over hype.
+            From the people that got their time back.
           </p>
         </Reveal>
 
