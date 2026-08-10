@@ -285,7 +285,7 @@ export const aboutTeam = {
       name: "Danny",
       role: "Co-Founder",
       bio: "Leads strategic management and leadership, aligning the team, guiding key decisions, and helping shape the company’s direction and growth.",
-      image: "/Danny.jfif",
+      image: "/Danny.jpg",
     },
     {
       name: "William Ang",
