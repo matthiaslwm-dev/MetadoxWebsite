@@ -88,7 +88,7 @@ export const whatWeBuild = {
   eyebrow: "What We Build",
   heading: "We build AI that works while you sleep",
   subhead:
-    "Every business is different. We start by understanding your bottlenecks, then we build the right automation for you.",
+    "Because freedom starts when your business runs by itself and stops depending on you.",
   /**
    * Shared destination for all six cards: there are no per-service pages yet,
    * so every card sends visitors to the About page. Give `Solution` its own

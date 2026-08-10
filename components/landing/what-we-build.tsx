@@ -24,7 +24,7 @@ export function LandingWhatWeBuild() {
           <h2 className="mb-4 text-2xl font-extrabold text-lp-foreground sm:text-3xl md:text-4xl">
             {whatWeBuild.heading}
           </h2>
-          <p className="mx-auto max-w-2xl text-lg text-lp-muted-foreground">
+          <p className="mx-auto max-w-3xl whitespace-nowrap text-sm text-lp-muted-foreground sm:text-base md:text-lg">
             {whatWeBuild.subhead}
           </p>
         </Reveal>
