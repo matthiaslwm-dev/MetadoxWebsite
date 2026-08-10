@@ -2,13 +2,16 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { portfolioProjects } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
-import { CaseStudyHero } from "@/components/sections/case-study/hero";
-import { Challenge } from "@/components/sections/case-study/challenge";
-import { Solution } from "@/components/sections/case-study/solution";
-import { Workflow } from "@/components/sections/case-study/workflow";
-import { BusinessImpact } from "@/components/sections/case-study/business-impact";
-import { Gallery } from "@/components/sections/case-study/gallery";
-import { CTA } from "@/components/sections/cta";
+import { LandingHeader } from "@/components/landing/header";
+import { LandingFooter } from "@/components/landing/footer";
+import { LandingCtaBanner } from "@/components/landing/cta-banner";
+import { CaseStudyHero } from "@/components/landing/case-study/hero";
+import { CaseStudyChallenge } from "@/components/landing/case-study/challenge";
+import { CaseStudySolution } from "@/components/landing/case-study/solution";
+import { CaseStudyWorkflow } from "@/components/landing/case-study/workflow";
+import { CaseStudyGallery } from "@/components/landing/case-study/gallery";
+import { CaseStudyImpact } from "@/components/landing/case-study/impact";
+import { projectsCta } from "@/lib/projects-content";
 
 type Params = { slug: string };
 
@@ -48,14 +51,16 @@ export default async function ProjectDetailPage({
   if (!project) notFound();
 
   return (
-    <>
+    <div className="lp-root relative min-h-screen bg-lp-background">
+      <LandingHeader />
       <CaseStudyHero project={project} />
-      <Challenge project={project} />
-      <Solution project={project} />
-      <Workflow project={project} />
-      <Gallery project={project} />
-      <BusinessImpact project={project} />
-      <CTA />
-    </>
+      <CaseStudyChallenge project={project} />
+      <CaseStudySolution project={project} />
+      <CaseStudyWorkflow project={project} />
+      <CaseStudyGallery project={project} />
+      <CaseStudyImpact project={project} />
+      <LandingCtaBanner content={projectsCta} wide />
+      <LandingFooter />
+    </div>
   );
 }

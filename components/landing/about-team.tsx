@@ -42,13 +42,19 @@ export function LandingAboutTeam() {
             >
               {/* Members without a portrait yet keep the generic avatar chip. */}
               {member.image ? (
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  width={160}
-                  height={160}
-                  className="h-20 w-20 rounded-full border border-lp-border object-cover"
-                />
+                <span className="block h-20 w-20 overflow-hidden rounded-full border border-lp-border">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    width={160}
+                    height={160}
+                    className="h-full w-full object-cover"
+                    style={{
+                      objectPosition: member.imagePosition,
+                      transform: member.imageZoom ? `scale(${member.imageZoom})` : undefined,
+                    }}
+                  />
+                </span>
               ) : (
                 <span className="flex h-20 w-20 items-center justify-center rounded-full border border-lp-border bg-lp-muted text-lp-primary">
                   <User className="h-8 w-8" />

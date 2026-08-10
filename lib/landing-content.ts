@@ -263,6 +263,10 @@ export type TeamMember = {
   linkedin?: string;
   /** Portrait in /public. Members without one fall back to the generic avatar. */
   image?: string;
+  /** CSS object-position for the portrait, e.g. "50% 20%". Defaults to center. */
+  imagePosition?: string;
+  /** Zoom multiplier applied to the portrait to crop in tighter on the face. */
+  imageZoom?: number;
 };
 
 /** PLACEHOLDER roster — swap in real names, photos and bios when available. */
@@ -273,19 +277,23 @@ export const aboutTeam = {
   members: [
     {
       name: "Matthias Lee",
-      role: "Co-Founder & CEO",
-      bio: "Leads the vision and strategy, bridging technology and business to turn ideas into practical solutions that solve real problems and create meaningful impact.",
+      role: "Co-Founder",
+      bio: "Leads the vision and strategy, bridging technology and business while leading the delivery team to turn ideas into practical solutions that solve real problems and create meaningful impact.",
       image: "/matthias.png",
     },
     {
-      name: "Founder Name",
+      name: "Danny",
       role: "Co-Founder",
-      bio: "Drives partnerships and the Singapore to China innovation bridge that underpins Metadox's approach.",
+      bio: "Placeholder bio.",
+      image: "/Danny.jfif",
     },
     {
       name: "William Ang",
       role: "Chief Sales Officer",
-      bio: "PLACEHOLDER: swap in the real name, role and bio.",
+      bio: "Leads commercial strategy and sales execution, turning technology into real business value, building lasting client relationships, and leading the sales team to drive growth and results.",
+      image: "/william.jpg",
+      imagePosition: "50% 65%",
+      imageZoom: 1.7,
     },
   ] as TeamMember[],
 } as const;
