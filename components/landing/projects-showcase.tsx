@@ -31,7 +31,7 @@ export function ProjectsShowcase() {
       : showcaseProjects.filter((p) => p.filterGroup === activeFilter);
 
   return (
-    <section className="relative bg-lp-background px-6 pb-24 pt-4">
+    <section className="relative bg-lp-background px-5 pb-16 pt-4 sm:px-6 sm:pb-20 lg:pb-24">
       <div className="mx-auto w-full max-w-5xl">
         <Reveal className="mb-10 flex flex-wrap justify-center gap-2">
           {filters.map((filter) => (
@@ -57,13 +57,19 @@ export function ProjectsShowcase() {
               key={project.slug}
               className="overflow-hidden rounded-[1.25rem] border border-lp-border bg-lp-card shadow-sm"
             >
-              <div className="grid gap-8 p-8 md:grid-cols-[320px_1fr] md:gap-0 md:divide-x md:divide-lp-border">
+              <div className="grid gap-8 p-6 sm:p-8 md:grid-cols-[320px_1fr] md:gap-0 md:divide-x md:divide-lp-border">
                 <div className="md:pr-8">
-                  <div className="flex items-start justify-between gap-3">
+                  {/*
+                    Wraps rather than holding one line. The category is free
+                    text and runs as long as "Finance Workflow Automation",
+                    which as a `shrink-0` sibling pushed straight out through
+                    the right edge of the card on a narrow phone.
+                  */}
+                  <div className="flex flex-wrap items-start justify-between gap-x-3 gap-y-2">
                     <h3 className="text-xl font-bold text-lp-foreground">
                       {project.name}
                     </h3>
-                    <span className="shrink-0 rounded-full bg-lp-muted px-3 py-1 text-[0.7rem] font-medium text-lp-muted-foreground">
+                    <span className="max-w-full rounded-full bg-lp-muted px-3 py-1 text-[0.7rem] font-medium text-lp-muted-foreground">
                       {project.category}
                     </span>
                   </div>

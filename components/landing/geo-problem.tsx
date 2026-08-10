@@ -36,12 +36,14 @@ function ChatMock({ active }: { active: number }) {
           <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
           <span className="h-2.5 w-2.5 rounded-full bg-red-400" />
         </div>
-        <div className="flex-1 rounded-full border border-lp-border bg-lp-card px-3.5 py-1 text-[0.7rem] text-lp-muted-foreground/70">
+        {/* `min-w-0` so the flex item is allowed to shrink below the URL's
+            intrinsic width instead of pushing the mock wider than its card. */}
+        <div className="min-w-0 flex-1 truncate rounded-full border border-lp-border bg-lp-card px-3.5 py-1 text-[0.7rem] text-lp-muted-foreground/70">
           {chat.url}
         </div>
       </div>
 
-      <div className="p-6">
+      <div className="p-4 sm:p-6">
         {/* The buyer's question. Tail on the bottom right, as sent. */}
         <div className="mb-5 flex justify-end">
           <p className="max-w-[16rem] rounded-[1.125rem_1.125rem_0.25rem_1.125rem] bg-lp-primary px-4.5 py-3 text-sm font-medium leading-relaxed text-lp-primary-foreground">
@@ -204,7 +206,7 @@ export function GeoProblem() {
       ref={spacerRef}
       className="relative scroll-mt-24 bg-lp-background lg:h-[300vh]"
     >
-      <div className="flex items-center overflow-hidden px-6 py-24 lg:sticky lg:top-0 lg:h-screen lg:py-0">
+      <div className="flex items-center overflow-hidden px-5 py-16 sm:px-6 sm:py-20 lg:sticky lg:top-0 lg:h-screen lg:py-0">
         <div className="mx-auto grid w-full max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.1em] text-lp-primary">

@@ -14,7 +14,7 @@ export function LandingWhatWeBuild() {
   return (
     <section
       id="what-we-build"
-      className="relative scroll-mt-24 bg-lp-muted/60 px-6 py-24"
+      className="relative scroll-mt-24 bg-lp-muted/60 px-5 py-16 sm:px-6 sm:py-20 lg:py-24"
     >
       <div className="mx-auto w-full max-w-6xl">
         <Reveal className="mb-16 text-center">
@@ -40,7 +40,7 @@ export function LandingWhatWeBuild() {
             <StaggerItem key={card.title} className="h-full">
               <Link
                 href={whatWeBuild.cardHref}
-                className="group flex h-full flex-col rounded-[1.25rem] border border-lp-border bg-lp-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-lp-primary/30 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lp-primary focus-visible:ring-offset-2 motion-reduce:transform-none motion-reduce:transition-none"
+                className="group flex h-full flex-col rounded-[1.25rem] border border-lp-border bg-lp-card p-6 shadow-sm sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-lp-primary/30 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lp-primary focus-visible:ring-offset-2 motion-reduce:transform-none motion-reduce:transition-none"
               >
                 {/* The icon tile is the hover tell: it fills with the brand colour
                   and inverts the glyph, so the card reacts without moving. */}

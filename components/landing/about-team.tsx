@@ -5,7 +5,7 @@ import { aboutTeam } from "@/lib/landing-content";
 
 export function LandingAboutTeam() {
   return (
-    <section id="team" className="relative scroll-mt-24 bg-lp-muted/60 px-6 py-24">
+    <section id="team" className="relative scroll-mt-24 bg-lp-muted/60 px-5 py-16 sm:px-6 sm:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-6xl">
         <Reveal className="mb-16 text-center">
           <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-lp-primary">
@@ -25,7 +25,7 @@ export function LandingAboutTeam() {
               key={member.name + member.role}
               // An odd card at the end of the two-up grid spans both columns and
               // centres itself, rather than hanging off the left edge.
-              className="flex h-full w-full flex-col items-center rounded-[1.25rem] border border-lp-border bg-lp-card p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-lp-primary/30 hover:shadow-lg sm:last:odd:col-span-2 sm:last:odd:mx-auto sm:last:odd:max-w-[calc(50%-0.75rem)]"
+              className="flex h-full w-full flex-col items-center rounded-[1.25rem] border border-lp-border bg-lp-card p-6 text-center sm:p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-lp-primary/30 hover:shadow-lg sm:last:odd:col-span-2 sm:last:odd:mx-auto sm:last:odd:max-w-[calc(50%-0.75rem)]"
             >
               {/* Members without a portrait yet keep the generic avatar chip. */}
               {member.image ? (

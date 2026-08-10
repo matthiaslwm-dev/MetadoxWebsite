@@ -6,7 +6,7 @@ export function CaseStudyChallenge({ project }: { project: PortfolioProject }) {
   const { challenge } = project;
 
   return (
-    <section className="relative scroll-mt-24 bg-lp-background px-6 py-20">
+    <section className="relative scroll-mt-24 bg-lp-background px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
       <div className="mx-auto w-full max-w-5xl">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-lp-primary">

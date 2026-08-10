@@ -11,7 +11,7 @@ import { aboutStory } from "@/lib/landing-content";
  */
 export function LandingAboutStory() {
   return (
-    <section id="story" className="relative scroll-mt-24 bg-lp-muted/60 px-6 py-24">
+    <section id="story" className="relative scroll-mt-24 bg-lp-muted/60 px-5 py-16 sm:px-6 sm:py-20 lg:py-24">
       <div className="mx-auto grid w-full max-w-6xl gap-12 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.6fr)] md:gap-16 lg:gap-24">
         <Reveal>
           <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-lp-primary">

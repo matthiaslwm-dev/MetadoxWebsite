@@ -6,7 +6,7 @@ export function GeoProcess() {
   return (
     <section
       id="geo-process"
-      className="relative scroll-mt-24 bg-lp-muted/60 px-6 py-24"
+      className="relative scroll-mt-24 bg-lp-muted/60 px-5 py-16 sm:px-6 sm:py-20 lg:py-24"
     >
       <div className="mx-auto w-full max-w-6xl">
         <Reveal className="mb-16 text-center">

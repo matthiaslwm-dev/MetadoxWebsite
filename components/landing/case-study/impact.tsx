@@ -6,7 +6,7 @@ export function CaseStudyImpact({ project }: { project: PortfolioProject }) {
   const { businessImpact, businessValue } = project;
 
   return (
-    <section className="relative scroll-mt-24 bg-lp-background px-6 py-20">
+    <section className="relative scroll-mt-24 bg-lp-background px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
       <div className="mx-auto w-full max-w-5xl">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-lp-primary">
@@ -23,7 +23,7 @@ export function CaseStudyImpact({ project }: { project: PortfolioProject }) {
         <Stagger className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {businessImpact.stats.map((stat) => (
             <StaggerItem key={stat.label} className="h-full">
-              <div className="flex h-full flex-col gap-4 rounded-[1.25rem] border border-lp-border bg-lp-card p-7 shadow-sm">
+              <div className="flex h-full flex-col gap-4 rounded-[1.25rem] border border-lp-border bg-lp-card p-6 shadow-sm sm:p-7">
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-lp-muted text-lp-primary">
                   <stat.icon className="h-5 w-5" />
                 </span>
@@ -53,7 +53,7 @@ export function CaseStudyImpact({ project }: { project: PortfolioProject }) {
         {businessValue.length ? (
           <Reveal
             delay={0.1}
-            className="mx-auto mt-10 max-w-3xl rounded-[1.25rem] border border-lp-border bg-lp-card p-8 shadow-sm"
+            className="mx-auto mt-10 max-w-3xl rounded-[1.25rem] border border-lp-border bg-lp-card p-6 shadow-sm sm:p-8"
           >
             <h3 className="mb-5 text-center text-sm font-bold uppercase tracking-wider text-lp-foreground">
               Why it matters

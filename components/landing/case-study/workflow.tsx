@@ -13,7 +13,7 @@ export function CaseStudyWorkflow({ project }: { project: PortfolioProject }) {
   const { workflow, name, beforeAfterTable } = project;
 
   return (
-    <section className="relative scroll-mt-24 bg-lp-background px-6 py-20">
+    <section className="relative scroll-mt-24 bg-lp-background px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
       <div className="mx-auto w-full max-w-5xl">
         <Reveal className="mx-auto max-w-2xl text-center">
           <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-lp-primary">
@@ -27,11 +27,18 @@ export function CaseStudyWorkflow({ project }: { project: PortfolioProject }) {
           </p>
         </Reveal>
 
-        <Stagger className="mt-10 flex flex-wrap items-center justify-center gap-3">
+        {/*
+          The arrows read as a chain only while the cards sit on one line. Once
+          the row wraps — which it always does on a phone — an arrow can end up
+          pointing at the right-hand edge with the card it referred to on the
+          next line down, so below `sm` the cards go two-up and the connectors
+          drop out entirely.
+        */}
+        <Stagger className="mt-10 grid grid-cols-2 items-stretch justify-center gap-3 sm:flex sm:flex-wrap sm:items-center">
           {workflow.kpis.map((kpi, i) => (
-            <div key={kpi.label} className="flex items-center gap-3">
-              <StaggerItem>
-                <div className="flex w-40 flex-col gap-2 rounded-2xl border border-lp-border bg-lp-card p-4 shadow-sm">
+            <div key={kpi.label} className="flex items-stretch gap-3 sm:items-center">
+              <StaggerItem className="w-full sm:w-auto">
+                <div className="flex h-full w-full flex-col gap-2 rounded-2xl border border-lp-border bg-lp-card p-4 shadow-sm sm:w-40">
                   <span
                     className={cn(
                       "inline-flex items-center gap-1.5 text-lg font-bold",
@@ -50,7 +57,7 @@ export function CaseStudyWorkflow({ project }: { project: PortfolioProject }) {
                 </div>
               </StaggerItem>
               {i < workflow.kpis.length - 1 ? (
-                <ArrowRight className="h-5 w-5 shrink-0 text-lp-border" />
+                <ArrowRight className="hidden h-5 w-5 shrink-0 text-lp-border sm:block" />
               ) : null}
             </div>
           ))}
@@ -62,11 +69,11 @@ export function CaseStudyWorkflow({ project }: { project: PortfolioProject }) {
             className="mt-12 overflow-hidden rounded-[1.25rem] border border-lp-border bg-lp-card shadow-sm"
           >
             <div className="grid grid-cols-2 divide-x divide-lp-border border-b border-lp-border text-sm font-semibold">
-              <div className="flex items-center gap-2 px-6 py-3 text-lp-muted-foreground">
+              <div className="flex items-center gap-2 px-4 py-3 text-lp-muted-foreground sm:px-6">
                 <X className="h-4 w-4 text-red-500" />
                 Before
               </div>
-              <div className="flex items-center gap-2 px-6 py-3 text-lp-foreground">
+              <div className="flex items-center gap-2 px-4 py-3 text-lp-foreground sm:px-6">
                 <Check className="h-4 w-4 text-emerald-600" />
                 After
               </div>
@@ -79,8 +86,10 @@ export function CaseStudyWorkflow({ project }: { project: PortfolioProject }) {
                   i > 0 && "border-t border-lp-border",
                 )}
               >
-                <div className="px-6 py-4 text-lp-muted-foreground">{row.before}</div>
-                <div className="px-6 py-4 font-medium text-lp-foreground">
+                <div className="px-4 py-3.5 text-lp-muted-foreground sm:px-6 sm:py-4">
+                  {row.before}
+                </div>
+                <div className="px-4 py-3.5 font-medium text-lp-foreground sm:px-6 sm:py-4">
                   {row.after}
                 </div>
               </div>

@@ -12,7 +12,7 @@ export function GeoServices() {
   return (
     <section
       id="geo-services"
-      className="relative scroll-mt-24 bg-lp-background px-6 py-24"
+      className="relative scroll-mt-24 bg-lp-background px-5 py-16 sm:px-6 sm:py-20 lg:py-24"
     >
       <div className="mx-auto w-full max-w-6xl">
         <Reveal className="mb-16 text-center">
@@ -30,7 +30,7 @@ export function GeoServices() {
         <Stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {geoServices.items.map((item) => (
             <StaggerItem key={item.title} className="h-full">
-              <div className="group flex h-full flex-col rounded-[1.25rem] border border-lp-border bg-lp-card p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-lp-primary/30 hover:shadow-lg motion-reduce:transform-none motion-reduce:transition-none">
+              <div className="group flex h-full flex-col rounded-[1.25rem] border border-lp-border bg-lp-card p-6 shadow-sm sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:border-lp-primary/30 hover:shadow-lg motion-reduce:transform-none motion-reduce:transition-none">
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl border border-lp-border bg-lp-muted text-lp-primary transition-colors group-hover:border-lp-primary group-hover:bg-lp-primary group-hover:text-lp-primary-foreground motion-reduce:transition-none">
                   <item.icon className="h-5 w-5" />
                 </div>

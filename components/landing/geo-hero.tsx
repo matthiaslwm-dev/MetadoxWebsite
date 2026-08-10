@@ -12,7 +12,7 @@ import { primaryCta } from "@/lib/site";
  */
 export function GeoHero() {
   return (
-    <section className="relative flex min-h-[88vh] items-center justify-center overflow-hidden bg-lp-background px-6 pt-28 pb-16">
+    <section className="relative flex min-h-[88svh] items-center justify-center overflow-hidden bg-lp-background px-5 pb-12 pt-28 sm:px-6 sm:pb-16">
       <ParticleField />
 
       {/* Painted over the field, not under it: the wave runs right through the
@@ -41,11 +41,11 @@ export function GeoHero() {
           style={{ animationDelay: "0.4s" }}
           className="flex animate-lp-fade-in-up flex-col items-center justify-center gap-4 opacity-0 sm:flex-row"
         >
-          <LpButton href={primaryCta.href} variant="hero">
+          <LpButton href={primaryCta.href} variant="hero" className="w-full max-w-xs sm:w-auto">
             Book a Free Discovery Call
             <ArrowRight className="h-5 w-5" />
           </LpButton>
-          <LpButton href="#what-is-geo">How GEO Works</LpButton>
+          <LpButton href="#what-is-geo" className="w-full max-w-xs sm:w-auto">How GEO Works</LpButton>
         </div>
 
         {/* Which assistants the work covers. Named rather than logo-marked:
@@ -55,7 +55,10 @@ export function GeoHero() {
           style={{ animationDelay: "0.55s" }}
           className="mt-8 flex animate-lp-fade-in flex-wrap items-center justify-center gap-2 opacity-0 sm:gap-3"
         >
-          <span className="text-xs text-lp-muted-foreground sm:text-sm">
+          {/* Own line below `sm`. As a flex sibling of the pills it ends up
+              reading as a caption for whichever one happens to land beside it
+              once the row wraps, rather than for the set. */}
+          <span className="w-full text-xs text-lp-muted-foreground sm:w-auto sm:text-sm">
             {geoHero.coversLabel}
           </span>
           {geoHero.engines.map((engine) => (

@@ -7,7 +7,7 @@ import { projectsHero } from "@/lib/projects-content";
  */
 export function ProjectsHero() {
   return (
-    <section className="relative bg-lp-background px-6 pt-36 pb-8 text-center">
+    <section className="relative bg-lp-background px-5 pb-6 pt-28 sm:px-6 sm:pb-8 sm:pt-32 md:pt-36 text-center">
       <Reveal className="mx-auto w-full max-w-3xl">
         <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-lp-primary">
           {projectsHero.eyebrow}

@@ -15,12 +15,15 @@ export function LandingFooter() {
           &copy; {new Date().getFullYear()} {siteConfig.legalName}. All rights
           reserved.
         </p>
-        <nav className="mt-3 flex items-center justify-center gap-4">
+        {/* `py-2` on the links rather than tighter spacing on the row: these
+            are the only two targets in the footer and at their natural 20px
+            line box they sit well under any platform's touch minimum. */}
+        <nav className="mt-1 flex items-center justify-center gap-2">
           {links.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="transition-colors hover:text-lp-foreground"
+              className="rounded-full px-3 py-2 transition-colors hover:text-lp-foreground"
             >
               {link.label}
             </Link>

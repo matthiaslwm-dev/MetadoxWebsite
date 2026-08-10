@@ -14,8 +14,10 @@ import {
 } from "react-icons/si";
 import { SignalLayer, useAnchors, type SignalLink } from "./agent-signals";
 import { LpButton } from "./lp-button";
+import { ParticleField } from "./particle-field";
 import { landingHero } from "@/lib/landing-content";
 import { primaryCta } from "@/lib/site";
+import { BELOW_LG, useMediaQuery } from "@/lib/use-media-query";
 
 /**
  * Which cursor reaches for which tool. Each stays on its own side of the hero
@@ -183,11 +185,34 @@ function CursorLabel({
 export function LandingHero() {
   const { containerRef, registerAnchor, points } = useAnchors();
 
-  // One full viewport tall. The header floats over the hero rather than
-  // occupying a band above it, so no height is subtracted; instead the copy
-  // gets a little top padding so the optical centre sits below the pill.
+  /*
+    Which staging the hero gets is a breakpoint decision made in JS, not CSS,
+    because both options are expensive and only one should ever be built.
+
+    The cursor-and-wire scene needs room on either side of the headline that a
+    phone or a portrait tablet simply doesn't have, and its wires are measured
+    off live DOM rectangles — hiding it with `lg:block` would still leave the
+    ResizeObserver and the animation loop running behind `display: none`.
+    Below `lg` the GEO page's point-grid wave takes over instead: it fills the
+    full width it is given, so it reads the same on a 360px phone as on a
+    1024px tablet, and it costs one canvas rather than a dozen animated nodes.
+  */
+  const compact = useMediaQuery(BELOW_LG);
+
+  // `100svh` rather than `100vh`: mobile browsers size `vh` to the viewport
+  // with the URL bar retracted, so a `100vh` hero pushes its own CTA under the
+  // chrome on first paint and only fits once you scroll.
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white px-6 pt-20">
+    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-white px-5 pb-16 pt-28 sm:px-6 lg:min-h-screen lg:pb-0 lg:pt-20">
+      {compact ? (
+        <>
+          <ParticleField />
+          {/* Painted over the field, not under it: the wave runs straight
+              through the middle of the hero and the copy needs a calmer
+              ground to sit on. Same treatment as the GEO hero. */}
+          <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_45%,rgba(255,255,255,0.94),rgba(255,255,255,0.6)_45%,transparent_72%)]" />
+        </>
+      ) : null}
 
       {/*
         Horizontal offsets are the reference's own, measured against the full
@@ -203,9 +228,12 @@ export function LandingHero() {
         The innermost pair (22%) waits until `2xl`. Below roughly 1600px the
         centred headline is wide enough that they would sit on top of it.
       */}
+      {/* `compact === null` is the pre-hydration state: nothing is staged until
+          the viewport has actually been measured. */}
+      {compact === false ? (
       <div
         ref={containerRef}
-        className="pointer-events-none absolute inset-0 hidden lg:block"
+        className="pointer-events-none absolute inset-0"
       >
         {/* Behind the icons, so a wire never crosses a bubble it passes. */}
         <SignalLayer links={SIGNAL_LINKS} points={points} />
@@ -295,37 +323,7 @@ export function LandingHero() {
           anchorRef={registerAnchor("sarah")}
         />
       </div>
-
-      {/*
-        Small screens get a lighter set, kept to the bands above and below the
-        copy — the only places with room once the text fills the width.
-      */}
-      <div className="pointer-events-none absolute inset-0 lg:hidden">
-        <FloatingIcon
-          icon={SiGmail}
-          colorClassName="text-[#EA4335]"
-          className="left-[8%] top-[5%]"
-          delay={0}
-        />
-        <FloatingIcon
-          icon={RiOpenaiFill}
-          colorClassName="text-black"
-          className="right-[8%] top-[5%]"
-          delay={0.3}
-        />
-        <FloatingIcon
-          icon={SiWhatsapp}
-          colorClassName="text-[#25D366]"
-          className="left-[10%] top-[88%]"
-          delay={0.5}
-        />
-        <FloatingIcon
-          icon={RiFileExcel2Fill}
-          colorClassName="text-[#217346]"
-          className="right-[10%] top-[88%]"
-          delay={0.2}
-        />
-      </div>
+      ) : null}
 
       <div className="relative z-10 mx-auto w-full max-w-4xl text-center">
         <h1
@@ -360,16 +358,25 @@ export function LandingHero() {
 
         <div
           style={{ animationDelay: "0.4s" }}
-          className="mb-10 flex animate-lp-fade-in flex-row items-center justify-center gap-4 opacity-0 sm:gap-8 md:gap-12"
+          className="mb-10 flex animate-lp-fade-in flex-row items-stretch justify-center gap-3 opacity-0 sm:gap-8 md:gap-12"
         >
+          {/*
+            No `whitespace-nowrap` below `sm`. The three labels together run to
+            roughly 300px of unbreakable text, which is wider than the content
+            box of a 320-360px phone, so holding them on one line each pushed
+            the row into a horizontal overflow. Wrapping is the cheaper trade:
+            the values stay unbroken, only the captions under them fold.
+          */}
           {landingHero.stats.map((stat, index) => (
             <div key={stat.label} className="contents">
-              {index > 0 && <div className="h-10 w-px bg-lp-border sm:h-12" />}
-              <div className="text-center">
-                <div className="text-lg font-extrabold whitespace-nowrap text-lp-foreground sm:text-2xl md:text-3xl">
+              {index > 0 && (
+                <div className="w-px shrink-0 self-center h-10 bg-lp-border sm:h-12" />
+              )}
+              <div className="min-w-0 flex-1 text-center sm:flex-none">
+                <div className="text-base font-extrabold whitespace-nowrap text-lp-foreground sm:text-2xl md:text-3xl">
                   {stat.value}
                 </div>
-                <div className="text-[11px] whitespace-nowrap text-lp-muted-foreground sm:text-sm">
+                <div className="text-[11px] leading-snug text-lp-muted-foreground sm:whitespace-nowrap sm:text-sm">
                   {stat.label}
                 </div>
               </div>
@@ -381,7 +388,7 @@ export function LandingHero() {
           style={{ animationDelay: "0.5s" }}
           className="flex animate-lp-fade-in-up flex-col items-center justify-center gap-4 opacity-0 sm:flex-row"
         >
-          <LpButton href={primaryCta.href}>
+          <LpButton href={primaryCta.href} className="w-full max-w-xs sm:w-auto">
             Transform Your Business
             <ArrowRight className="h-5 w-5" />
           </LpButton>

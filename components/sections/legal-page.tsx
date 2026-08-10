@@ -10,7 +10,7 @@ export function LegalPage({
   sections: LegalSection[];
 }) {
   return (
-    <section className="relative bg-lp-background px-6 pb-24 pt-32 md:pt-40">
+    <section className="relative bg-lp-background px-5 pb-16 pt-28 sm:px-6 sm:pb-20 sm:pt-32 md:pb-24 md:pt-40">
       <div className="mx-auto max-w-[62ch]">
         <h1 className="text-balance font-heading text-3xl font-bold leading-tight tracking-tight text-lp-foreground sm:text-4xl">
           {title}

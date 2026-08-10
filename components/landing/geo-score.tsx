@@ -116,7 +116,7 @@ export function GeoScore() {
       id="ai-visibility-score"
       // Tinted band, the same one the definition section uses, so the page
       // keeps its white / tinted rhythm instead of introducing a third ground.
-      className="relative scroll-mt-24 bg-lp-muted/60 px-6 py-24"
+      className="relative scroll-mt-24 bg-lp-muted/60 px-5 py-16 sm:px-6 sm:py-20 lg:py-24"
     >
       <div className="mx-auto w-full max-w-6xl">
         <Reveal className="mb-14 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
@@ -147,7 +147,7 @@ export function GeoScore() {
             <div className="grid lg:grid-cols-[1fr_1.5fr]">
               {/* Dial. The divider is a bottom edge when stacked, a right edge
                   once the two panes sit side by side. */}
-              <div className="flex flex-col items-center justify-center border-b border-lp-border bg-lp-muted/40 px-8 py-12 lg:border-b-0 lg:border-r">
+              <div className="flex flex-col items-center justify-center border-b border-lp-border bg-lp-muted/40 px-6 py-10 sm:px-8 sm:py-12 lg:border-b-0 lg:border-r">
                 <ScoreGauge />
 
                 <span className="mt-3 inline-flex items-center gap-1.5 rounded-full border border-red-300 bg-red-50 px-3.5 py-1">
@@ -165,7 +165,7 @@ export function GeoScore() {
                 </p>
               </div>
 
-              <div className="px-8 py-12 sm:px-10">
+              <div className="px-6 py-10 sm:px-10 sm:py-12">
                 <h3 className="mb-3 text-2xl font-extrabold leading-tight tracking-tight text-lp-foreground">
                   {geoScore.panelHeading}
                   <span className="block text-lp-primary">

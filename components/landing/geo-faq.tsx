@@ -14,7 +14,7 @@ export function GeoFaq() {
   return (
     <section
       id="geo-faq"
-      className="relative scroll-mt-24 bg-lp-background px-6 py-24"
+      className="relative scroll-mt-24 bg-lp-background px-5 py-16 sm:px-6 sm:py-20 lg:py-24"
     >
       <div className="mx-auto w-full max-w-3xl">
         <Reveal className="mb-12 text-center">

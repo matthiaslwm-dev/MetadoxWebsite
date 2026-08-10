@@ -52,7 +52,7 @@ export function LandingBooking() {
 
   return (
     <>
-      <section className="bg-lp-background px-6 pb-16 pt-32 md:pb-20 md:pt-40">
+      <section className="bg-lp-background px-5 pb-12 pt-28 sm:px-6 sm:pb-16 sm:pt-32 md:pb-20 md:pt-40">
         <div
           style={{ animationDelay: "0.1s" }}
           className="mx-auto w-full max-w-4xl animate-lp-fade-in text-center opacity-0"
@@ -81,7 +81,7 @@ export function LandingBooking() {
         </div>
       </section>
 
-      <section className="bg-lp-muted/60 px-6 py-20">
+      <section className="bg-lp-muted/60 px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
         <div className="mx-auto w-full max-w-6xl">
           <Reveal className="mb-12 text-center">
             <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-lp-primary">
@@ -95,7 +95,7 @@ export function LandingBooking() {
           <Stagger className="grid grid-cols-1 gap-6 md:grid-cols-3">
             {bookingPage.agenda.map((item, index) => (
               <StaggerItem key={item.title} className="h-full">
-                <div className="flex h-full flex-col rounded-[1.25rem] border border-lp-border bg-lp-card p-8 shadow-sm">
+                <div className="flex h-full flex-col rounded-[1.25rem] border border-lp-border bg-lp-card p-6 shadow-sm sm:p-8">
                   {/* Icon tile and step number share a row, so the three cards
                       start their copy at the same height. */}
                   <div className="mb-6 flex items-center justify-between">
@@ -128,7 +128,7 @@ export function LandingBooking() {
         into two panes above ~700px, and squeezes them (leaving the date picker
         blank) until the frame is roughly 900px or wider.
       */}
-      <section id="scheduler" className="scroll-mt-24 bg-lp-background px-6 py-20">
+      <section id="scheduler" className="scroll-mt-24 bg-lp-background px-5 py-14 sm:px-6 sm:py-16 lg:py-20">
         <div className="mx-auto w-full max-w-6xl">
           <Reveal className="mb-8 text-center">
             <h2 className="text-2xl font-bold text-lp-foreground sm:text-3xl">

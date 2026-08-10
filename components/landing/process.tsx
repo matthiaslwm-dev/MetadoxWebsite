@@ -6,7 +6,7 @@ import { primaryCta } from "@/lib/site";
 
 export function LandingProcess() {
   return (
-    <section id="process" className="relative bg-lp-background px-6 py-24">
+    <section id="process" className="relative bg-lp-background px-5 py-16 sm:px-6 sm:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-6xl">
         <Reveal className="mb-16 text-center">
           <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-lp-primary">
@@ -73,7 +73,7 @@ export function LandingProcess() {
             Ready to see where AI can help your business?
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <LpButton href={primaryCta.href}>
+            <LpButton href={primaryCta.href} className="w-full max-w-xs sm:w-auto">
               {primaryCta.label}
               <ArrowRight className="h-5 w-5" />
             </LpButton>

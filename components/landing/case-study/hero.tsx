@@ -6,14 +6,16 @@ import type { PortfolioProject } from "@/lib/content";
 
 export function CaseStudyHero({ project }: { project: PortfolioProject }) {
   return (
-    <section className="relative overflow-hidden bg-lp-background px-6 pt-36 pb-16">
+    <section className="relative overflow-hidden bg-lp-background px-5 pb-12 pt-28 sm:px-6 sm:pb-16 sm:pt-32 md:pt-36">
       <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(circle_at_50%_0%,rgba(1,94,232,0.08),transparent_60%)]" />
 
       <div className="relative z-10 mx-auto w-full max-w-4xl text-center">
         <FadeIn>
           <Link
             href="/projects"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-lp-muted-foreground transition-colors hover:text-lp-foreground"
+            // Negative margin cancels the padding optically, so the target
+            // grows to a tappable height without moving the baseline.
+            className="-my-2 inline-flex items-center gap-1.5 py-2 text-sm font-medium text-lp-muted-foreground transition-colors hover:text-lp-foreground"
           >
             <ArrowLeft className="h-4 w-4" />
             Back to Projects

@@ -42,7 +42,7 @@ export function LandingCtaBanner({
   return (
     <section
       id="contact"
-      className="relative scroll-mt-24 bg-gradient-to-b from-lp-muted/70 to-lp-background px-6 py-24"
+      className="relative scroll-mt-24 bg-gradient-to-b from-lp-muted/70 to-lp-background px-5 py-16 sm:px-6 sm:py-20 lg:py-24"
     >
       <Reveal
         className={cn("mx-auto w-full text-center", wide ? "max-w-4xl" : "max-w-3xl")}
@@ -71,11 +71,11 @@ export function LandingCtaBanner({
         ) : null}
 
         <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <LpButton href={whatsappHref} variant="hero">
+          <LpButton href={whatsappHref} variant="hero" className="w-full max-w-xs sm:w-auto">
             <WhatsAppIcon className="h-5 w-5" />
             {content.whatsappLabel}
           </LpButton>
-          <LpButton href={primaryCta.href} variant="hero">
+          <LpButton href={primaryCta.href} variant="hero" className="w-full max-w-xs sm:w-auto">
             <CalendarCheck className="h-4 w-4" />
             {content.bookLabel}
           </LpButton>

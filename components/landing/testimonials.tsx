@@ -4,7 +4,7 @@ import { testimonials } from "@/lib/landing-content";
 
 export function LandingTestimonials() {
   return (
-    <section id="testimonials" className="relative bg-lp-muted/30 px-6 py-24">
+    <section id="testimonials" className="relative bg-lp-muted/30 px-5 py-16 sm:px-6 sm:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-6xl">
         <Reveal className="mb-16 text-center">
           <span className="mb-4 block text-sm font-medium uppercase tracking-wider text-lp-primary">

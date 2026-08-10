@@ -41,7 +41,7 @@ export function CaseStudyGallery({ project }: { project: PortfolioProject }) {
               />
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-center gap-4 px-6 py-24 text-center">
+            <div className="flex flex-col items-center justify-center gap-4 px-6 py-16 text-center sm:py-24">
               <span className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-lp-muted text-lp-primary">
                 <Play className="h-6 w-6 fill-current" />
               </span>

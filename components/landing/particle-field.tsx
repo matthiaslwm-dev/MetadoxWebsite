@@ -16,6 +16,17 @@ const SPEED = 0.05;
 const POINT_COLOR = [0.15, 0.45, 0.65] as const;
 
 /**
+ * Ceiling on the backing-store scale.
+ *
+ * The field covers the whole hero, so its cost is almost entirely fill rate.
+ * Phones routinely report a device pixel ratio of 3, which asks the GPU for
+ * nine times the pixels of a CSS-resolution canvas every frame, on the class
+ * of hardware least able to give it. Points are soft round dots with no fine
+ * detail to lose, so 2x is indistinguishable here and roughly halves the work.
+ */
+const MAX_PIXEL_RATIO = 2;
+
+/**
  * Animated point-grid wave rendered with WebGL.
  *
  * `three` is imported inside the effect so it stays out of the initial client
@@ -51,7 +62,7 @@ export function ParticleField({ className }: { className?: string }) {
       camera.position.set(0, 600, 1400);
 
       const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
-      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, MAX_PIXEL_RATIO));
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setClearColor(0xffffff, 0);
       container.appendChild(renderer.domElement);
@@ -120,7 +131,41 @@ export function ParticleField({ className }: { className?: string }) {
       if (reducedMotion) drawFrame();
       else animate();
 
+      /*
+        The field lives in a hero, so it is off screen for all but the first
+        screenful of the page — yet `requestAnimationFrame` keeps firing for as
+        long as the tab is foregrounded. On a phone that is a full-screen WebGL
+        redraw every frame, for the entire time someone reads the rest of the
+        page, and it shows up as heat and battery rather than as anything on
+        screen. Run only while the hero is actually visible.
+      */
+      const visibility = new IntersectionObserver(
+        ([entry]) => {
+          if (reducedMotion) return;
+          if (entry.isIntersecting) {
+            if (!frameId) animate();
+          } else {
+            cancelAnimationFrame(frameId);
+            frameId = 0;
+          }
+        },
+        { threshold: 0 },
+      );
+      visibility.observe(container);
+
+      /*
+        Width-keyed, not size-keyed. On mobile the address bar retracts and
+        expands as you scroll, and each of those fires `resize` with a new
+        height — reallocating the drawing buffer mid-scroll, which is both the
+        most expensive thing this component can do and visible as a stutter.
+        Height alone never changes the framing enough to matter here; an
+        orientation change moves the width too, so real reframes still land.
+      */
+      let lastWidth = window.innerWidth;
+
       const handleResize = () => {
+        if (window.innerWidth === lastWidth) return;
+        lastWidth = window.innerWidth;
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
@@ -130,6 +175,7 @@ export function ParticleField({ className }: { className?: string }) {
 
       dispose = () => {
         cancelAnimationFrame(frameId);
+        visibility.disconnect();
         window.removeEventListener("resize", handleResize);
         geometry.dispose();
         material.dispose();

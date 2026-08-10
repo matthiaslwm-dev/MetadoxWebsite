@@ -11,7 +11,7 @@ import { aboutHero } from "@/lib/landing-content";
  */
 export function LandingAboutHero() {
   return (
-    <section className="bg-lp-background px-6 pb-16 pt-32 md:pb-24 md:pt-40">
+    <section className="bg-lp-background px-5 pb-12 pt-28 sm:px-6 sm:pb-16 sm:pt-32 md:pb-24 md:pt-40">
       <div
         style={{ animationDelay: "0.1s" }}
         className="mx-auto w-full max-w-4xl animate-lp-fade-in text-center opacity-0"
