@@ -284,7 +284,7 @@ export const aboutTeam = {
     {
       name: "Danny",
       role: "Co-Founder",
-      bio: "Placeholder bio.",
+      bio: "Provides strategic management and leadership, aligning the team, guiding key decisions, and helping shape the company’s direction and growth.",
       image: "/Danny.jfif",
     },
     {
