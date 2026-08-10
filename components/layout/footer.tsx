@@ -94,10 +94,10 @@ export function Footer() {
             © {year} {siteConfig.legalName}. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="#" className="transition-colors hover:text-white/80">
+            <Link href="/privacy-policy" className="transition-colors hover:text-white/80">
               Privacy Policy
             </Link>
-            <Link href="#" className="transition-colors hover:text-white/80">
+            <Link href="/terms-of-service" className="transition-colors hover:text-white/80">
               Terms of Service
             </Link>
             <div className="flex items-center gap-2">

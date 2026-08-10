@@ -3,7 +3,15 @@
 import { usePathname } from "next/navigation";
 
 /** Routes that supply their own header and footer. */
-const SELF_CHROMED_ROUTES = ["/", "/about", "/geo", "/booking", "/projects"];
+const SELF_CHROMED_ROUTES = [
+  "/",
+  "/about",
+  "/geo",
+  "/booking",
+  "/projects",
+  "/terms-of-service",
+  "/privacy-policy",
+];
 
 /**
  * Hides the site-wide navbar/footer on routes that render their own chrome.

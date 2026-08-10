@@ -1,13 +1,10 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site";
 
-/**
- * Minimal landing-page footer. The legal pages don't exist yet, so these are
- * placeholders like the ones in the main site footer.
- */
+/** Minimal landing-page footer. */
 const links = [
-  { label: "Terms of Service", href: "#" },
-  { label: "Privacy Policy", href: "#" },
+  { label: "Terms of Service", href: "/terms-of-service" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
 ];
 
 export function LandingFooter() {
