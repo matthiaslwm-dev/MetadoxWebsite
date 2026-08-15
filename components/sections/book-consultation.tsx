@@ -8,6 +8,7 @@ import { Eyebrow } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Reveal } from "@/components/ui/motion";
 import { calendlyUrl } from "@/lib/site";
+import "@/lib/calendly";
 
 const trustPoints = [
   { icon: Clock, label: "30 minutes" },
@@ -43,14 +44,6 @@ const CALENDLY_WIDGET = "https://assets.calendly.com/assets/external/widget.js";
   "Privacy Policy" footer. Colours are hex without the leading `#`.
 */
 const embedUrl = `${calendlyUrl}?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=015ee8&text_color=03153b`;
-
-declare global {
-  interface Window {
-    Calendly?: {
-      initInlineWidget: (options: { url: string; parentElement: HTMLElement }) => void;
-    };
-  }
-}
 
 export function BookConsultation() {
   const host = useRef<HTMLDivElement>(null);

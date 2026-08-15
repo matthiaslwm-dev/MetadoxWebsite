@@ -6,6 +6,7 @@ import { SmoothScroll } from "@/components/providers/lenis-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { SiteChrome } from "@/components/layout/site-chrome";
+import { ChatWidget } from "@/components/chat/chat-widget";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -98,6 +99,7 @@ export default function RootLayout({
           <SiteChrome>
             <Footer />
           </SiteChrome>
+          <ChatWidget />
         </SmoothScroll>
       </body>
     </html>
