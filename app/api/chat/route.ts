@@ -7,6 +7,7 @@ import {
 } from "ai";
 
 import { getChatModel } from "@/lib/chat/model";
+import { estimateCostUsd } from "@/lib/chat/pricing";
 import { buildSystemPrompt } from "@/lib/chat/prompt";
 import { MAX_INPUT_CHARS, MAX_MESSAGES_PER_CONVERSATION, isRateLimited } from "@/lib/chat/rate-limit";
 import { logEvent, upsertLeadRow } from "@/lib/chat/sheets";
@@ -88,7 +89,28 @@ export async function POST(request: Request) {
       // tokens despite "none" (open OpenAI bug) — maxOutputTokens above is the backstop for that.
       openai: { reasoningEffort: "none" },
     },
-    onFinish: async () => {
+    onFinish: async (event) => {
+      const modelId = event.model?.modelId ?? "unknown";
+      const inputTokens = event.usage.inputTokens ?? 0;
+      const cachedInputTokens = event.usage.inputTokenDetails.cacheReadTokens ?? 0;
+      const outputTokens = event.usage.outputTokens ?? 0;
+      const llmCalls = event.steps.length;
+      const costUsd = estimateCostUsd(modelId, { inputTokens, cachedInputTokens, outputTokens });
+
+      // Per-turn cost/token observability. Cheap enough to always log; aggregate with
+      // scripts/report-usage.mts, which reads the running per-conversation totals this
+      // writes into the Leads sheet below.
+      console.log("[chat/usage]", {
+        conversationId,
+        model: modelId,
+        llmCalls,
+        inputTokens,
+        cachedInputTokens,
+        outputTokens,
+        cacheHitRate: inputTokens > 0 ? cachedInputTokens / inputTokens : 0,
+        costUsd,
+      });
+
       await upsertLeadRow({
         conversationId,
         lead: state.lead,
@@ -96,6 +118,7 @@ export async function POST(request: Request) {
         messageCount: messages.length,
         pageUrl: body?.pageUrl,
         transcript: messages.map((m) => `${m.role}: ${textFromParts(m.parts)}`).join("\n"),
+        usage: { model: modelId, llmCalls, inputTokens, cachedInputTokens, outputTokens, costUsd },
       });
     },
   });

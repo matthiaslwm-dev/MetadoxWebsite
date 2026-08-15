@@ -3,7 +3,7 @@ import { GoogleAuth } from "google-auth-library";
 import type { ChatEvent, LeadInfo } from "@/lib/chat/types";
 
 const LEADS_RANGE = "Leads!A:A";
-const LEADS_APPEND_RANGE = "Leads!A:O";
+const LEADS_APPEND_RANGE = "Leads!A:U";
 const EVENTS_APPEND_RANGE = "Events!A:D";
 
 const LEADS_HEADER = [
@@ -22,6 +22,13 @@ const LEADS_HEADER = [
   "page_url",
   "transcript",
   "booked_at",
+  // Token/cost observability, accumulated across every turn of the conversation.
+  "llm_calls",
+  "input_tokens",
+  "cached_input_tokens",
+  "output_tokens",
+  "estimated_cost_usd",
+  "model",
 ] as const;
 
 let authClient: GoogleAuth | null = null;
@@ -71,6 +78,17 @@ async function findLeadRow(conversationId: string): Promise<number | null> {
   return rowIndex === -1 ? null : rowIndex + 1;
 }
 
+export type TurnUsageUpdate = {
+  model: string;
+  /** Number of LLM calls this turn made (>1 when tool calls forced extra round-trips). */
+  llmCalls: number;
+  inputTokens: number;
+  cachedInputTokens: number;
+  outputTokens: number;
+  /** Null when the model has no known pricing (see lib/chat/pricing.ts). */
+  costUsd: number | null;
+};
+
 export type LeadRowUpdate = {
   conversationId: string;
   lead?: LeadInfo;
@@ -81,6 +99,8 @@ export type LeadRowUpdate = {
   transcript?: string;
   /** ISO start time of the confirmed discovery call. */
   bookedAt?: string;
+  /** This turn's token usage — accumulated into the row's running totals. */
+  usage?: TurnUsageUpdate;
 };
 
 /** Upserts one row per conversation in the Leads tab. Swallows errors: a CRM outage must never break a chat. */
@@ -108,6 +128,12 @@ export async function upsertLeadRow(update: LeadRowUpdate): Promise<void> {
         update.pageUrl || "",
         update.transcript || "",
         update.bookedAt || "",
+        String(update.usage?.llmCalls ?? 0),
+        String(update.usage?.inputTokens ?? 0),
+        String(update.usage?.cachedInputTokens ?? 0),
+        String(update.usage?.outputTokens ?? 0),
+        update.usage?.costUsd != null ? update.usage.costUsd.toFixed(6) : "",
+        update.usage?.model || "",
       ];
       await sheetsFetch(
         `/values/${encodeURIComponent(LEADS_APPEND_RANGE)}:append?valueInputOption=RAW`,
@@ -116,7 +142,7 @@ export async function upsertLeadRow(update: LeadRowUpdate): Promise<void> {
       return;
     }
 
-    const currentRes = await sheetsFetch(`/values/Leads!A${existingRow}:O${existingRow}`);
+    const currentRes = await sheetsFetch(`/values/Leads!A${existingRow}:U${existingRow}`);
     const current: string[] = currentRes.values?.[0] || [];
     const merged = [...LEADS_HEADER].map((_, i) => current[i] || "");
 
@@ -134,7 +160,18 @@ export async function upsertLeadRow(update: LeadRowUpdate): Promise<void> {
     if (update.transcript !== undefined) merged[13] = update.transcript;
     if (update.bookedAt) merged[14] = update.bookedAt;
 
-    await sheetsFetch(`/values/Leads!A${existingRow}:O${existingRow}?valueInputOption=RAW`, {
+    if (update.usage) {
+      const numeric = (i: number) => Number(current[i]) || 0;
+      merged[15] = String(numeric(15) + update.usage.llmCalls);
+      merged[16] = String(numeric(16) + update.usage.inputTokens);
+      merged[17] = String(numeric(17) + update.usage.cachedInputTokens);
+      merged[18] = String(numeric(18) + update.usage.outputTokens);
+      merged[19] =
+        update.usage.costUsd != null ? (numeric(19) + update.usage.costUsd).toFixed(6) : merged[19];
+      merged[20] = update.usage.model;
+    }
+
+    await sheetsFetch(`/values/Leads!A${existingRow}:U${existingRow}?valueInputOption=RAW`, {
       method: "PUT",
       body: JSON.stringify({ values: [merged] }),
     });

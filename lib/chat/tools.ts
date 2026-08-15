@@ -2,8 +2,11 @@ import { tool } from "ai";
 import { z } from "zod";
 
 import { chatbotConfig } from "@/lib/chat/config";
+import { getKnowledgeSection, getKnowledgeSectionTitles } from "@/lib/chat/knowledge";
 import { logEvent, upsertLeadRow } from "@/lib/chat/sheets";
 import type { LeadInfo } from "@/lib/chat/types";
+
+const knowledgeSectionTitles = getKnowledgeSectionTitles();
 
 export type ChatToolsContext = {
   conversationId: string;
@@ -18,6 +21,17 @@ export type ChatToolsContext = {
 
 export function createChatTools({ conversationId, pageUrl, state }: ChatToolsContext) {
   return {
+    get_knowledge: tool({
+      description:
+        `Look up real information about ${chatbotConfig.companyName} before answering a factual question: pricing, services, process, case studies, grants, team, GEO, or the booking call. Call it with the exact section name from your system prompt's knowledge base index. Never state a fact about the company you haven't looked up.`,
+      inputSchema: z.object({
+        section: z.enum(knowledgeSectionTitles as [string, ...string[]]),
+      }),
+      execute: async ({ section }) => ({
+        content: getKnowledgeSection(section) ?? "No content found for that section.",
+      }),
+    }),
+
     capture_lead: tool({
       description:
         "Save what you've learned about the visitor: name, email, company, industry, their pain point, or their goal. Call AT MOST TWICE per conversation: once when you first understand their real, concrete problem, and again only if they give a name, an email, or a genuinely different problem. Do not call it on a vague opening answer, and do not call it again just to reword a pain point you already saved. Omit fields you don't have rather than sending empty strings.",

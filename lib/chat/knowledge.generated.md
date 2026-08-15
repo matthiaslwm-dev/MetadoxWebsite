@@ -69,9 +69,7 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
   "whatWeBuild": {
     "eyebrow": "What We Build",
     "heading": "We build AI that works while you sleep",
-    "subhead": "Because freedom starts when your business runs by itself and stops depending on you.",
-    "cardHref": "/about",
-    "cardCta": "Learn More"
+    "subhead": "Because freedom starts when your business runs by itself and stops depending on you."
   },
   "processSteps": [
     {
@@ -137,7 +135,6 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
       "navLabel": "Discover",
       "title": "Discover",
       "tagline": "Understand your business.",
-      "accent": "blue",
       "description": "We analyse your business, workflows and technology to uncover bottlenecks, inefficiencies and opportunities.",
       "points": [
         "Business process review",
@@ -156,7 +153,6 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
       "navLabel": "Strategise",
       "title": "Strategise",
       "tagline": "Prioritise what matters most.",
-      "accent": "teal",
       "description": "We turn the findings into a clear plan, ranking the changes that deliver the most value for the least effort.",
       "points": [
         "Opportunity scoring & prioritisation",
@@ -175,7 +171,6 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
       "navLabel": "Build",
       "title": "Build",
       "tagline": "Implement the right solutions.",
-      "accent": "amber",
       "description": "We build the systems, automations and AI solutions your business needs to run efficiently.",
       "points": [
         "Custom software development",
@@ -194,7 +189,6 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
       "navLabel": "Integrate",
       "title": "Integrate",
       "tagline": "Connect people, processes, and technology.",
-      "accent": "purple",
       "description": "We connect the new solutions to your existing systems and to the people who use them every day.",
       "points": [
         "System integration & APIs",
@@ -213,7 +207,6 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
       "navLabel": "Grow",
       "title": "Grow",
       "tagline": "Optimise and scale for long-term success.",
-      "accent": "blue",
       "description": "We continuously optimise performance, monitor results and scale your digital and AI capabilities.",
       "points": [
         "Performance monitoring & KPI tracking",
@@ -260,7 +253,7 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
 
 ```json
 {
-  "caseStudies": [
+  "highlightStats": [
     {
       "metricValue": 70,
       "metricSuffix": "%",
@@ -286,100 +279,192 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
       "description": "A structured upskilling programme made AI part of everyday work across every department."
     }
   ],
-  "featuredProjects": [
+  "detailedCaseStudies": [
     {
-      "slug": "invoiceflow",
-      "badge": "Automation Project",
-      "mockup": "invoice",
       "name": "InvoiceFlow",
-      "description": "Automated invoice generation, payment tracking and reminders for an SME finance team.",
-      "problem": "Invoices were built by hand, payments lived in spreadsheets, and staff sent every reminder manually.",
-      "solution": "One automated workflow now creates invoices, tracks payments and sends reminders in real time.",
-      "stats": [
+      "industry": "SME Finance & Operations",
+      "category": "Finance Workflow Automation",
+      "description": "Automating invoice generation, sending, tracking, and payment reminders for an SME finance team.",
+      "challenge": "For many SMEs, invoicing is still a manual, multi-step process spread across different tools. It takes time, creates bottlenecks, and leaves room for human error — slowing cash flow and taking focus away from growing the business.",
+      "solution": "Metadox designed a workflow automation around the client's existing invoicing process — replacing manual, repetitive admin with a streamlined system, while keeping human review before anything is sent.",
+      "keyStats": [
         {
-          "value": "15 min → 2 min",
-          "label": "Invoice creation time"
-        },
-        {
-          "value": "75%",
-          "label": "Less manual work"
+          "value": "87%",
+          "label": "Faster Invoicing",
+          "description": "Save up to 13 minutes per invoice."
         },
         {
           "value": "0",
-          "label": "Manual reminder emails"
+          "label": "Manual Data Entry",
+          "description": "Customer retrieval, invoice generation, and tracking are automated."
+        },
+        {
+          "value": "Automated",
+          "label": "Follow-ups",
+          "description": "Payment reminders are automatically scheduled and tracked."
         },
         {
           "value": "100%",
-          "label": "Invoices tracked digitally"
+          "label": "Consistent Output",
+          "description": "Every invoice, PDF, and email follows the same professional standard."
+        }
+      ],
+      "businessImpact": [
+        {
+          "label": "Time Per Invoice",
+          "value": "10–15 min",
+          "detail": "↓ ~1–2 min review",
+          "note": "≈ 80–90% reduction"
+        },
+        {
+          "label": "Invoices Per Month",
+          "value": "300"
+        },
+        {
+          "label": "Estimated Admin Time Saved",
+          "value": "40+ hours/month"
+        },
+        {
+          "label": "Estimated Labour Cost Saved",
+          "value": "~S$800–1,500/month"
+        },
+        {
+          "label": "Manual Steps Eliminated",
+          "value": "6+"
+        },
+        {
+          "label": "Human Errors",
+          "value": "Reduced through workflow standardisation"
+        }
+      ],
+      "beforeAfter": [
+        {
+          "before": "Manual invoice creation",
+          "after": "One-click generation"
+        },
+        {
+          "before": "Manual email",
+          "after": "Automated"
+        },
+        {
+          "before": "Spreadsheet tracking",
+          "after": "Dashboard"
+        },
+        {
+          "before": "Manual reminders",
+          "after": "Automated"
         }
       ],
       "techStack": [
-        {
-          "name": "n8n",
-          "colorClassName": "text-[#EA4B71]"
-        },
-        {
-          "name": "Supabase",
-          "colorClassName": "text-[#3ECF8E]"
-        },
-        {
-          "name": "WhatsApp API",
-          "colorClassName": "text-[#25D366]"
-        },
-        {
-          "name": "Resend",
-          "colorClassName": "text-navy"
-        }
+        "n8n",
+        "Supabase",
+        "WhatsApp API",
+        "Resend"
+      ],
+      "businessValue": [
+        "Reduces repetitive administrative work",
+        "Standardises finance workflows",
+        "Reduces manual errors",
+        "Improves invoice visibility",
+        "Better payment tracking",
+        "Improves operational efficiency",
+        "Shows how automation can help SMEs scale without adding admin workload"
       ]
     },
     {
-      "slug": "compass",
-      "badge": "CRE Intelligence & Automation",
-      "mockup": "pipeline",
       "name": "Compass",
-      "description": "AI intelligence system for commercial real estate teams that spots companies about to need more office, retail or warehouse space — before a human would notice.",
-      "problem": "Brokers relied on cold calling, door-knocking and reactive URA REALIS/EdgeProp lease-expiration lists, missing companies that were quietly outgrowing their space until a competing broker already had months of head start.",
-      "solution": "AI agents scan hiring, funding and expansion signals to flag companies needing space months before a lease even comes up, then route the strongest opportunities straight into an automated pipeline.",
-      "stats": [
+      "industry": "Commercial Real Estate",
+      "category": "CRE Intelligence & Automation",
+      "description": "An AI intelligence system that identifies companies likely to need office, retail or warehouse space within the next 6–12 months, and automates the broker's pipeline end to end.",
+      "challenge": "Most brokers still prospect the way they did 20 years ago: cold calling and door-knocking businesses in a submarket, and cross-checking URA REALIS or EdgeProp for leases that are about to expire. But an expiring lease is a reactive signal — by the time it shows up, several other brokers are already circling. Anything earlier — a funding round, a hiring spree, a new branch opening — has to be caught by manually reading business news and LinkedIn, one company at a time, or by hoping a lawyer, accountant or mover happens to mention a growing client.",
+      "solution": "Compass is an AI-powered commercial real estate intelligence platform that transforms real-time business signals into qualified property opportunities. AI continuously identifies, qualifies, and prioritises companies likely to require new office, retail, or warehouse space, enabling brokers to engage prospects months before competitors.",
+      "keyStats": [
         {
           "value": "80%",
-          "label": "Faster opportunity qualification"
+          "label": "Faster Qualification",
+          "description": "Cuts manual research time from hours to minutes."
         },
         {
           "value": "10,000+",
-          "label": "Companies monitored"
+          "label": "Companies Processed",
+          "description": "Signal Feed continuously enriches and tracks companies at scale."
         },
         {
           "value": "60%",
-          "label": "Higher quality opportunities"
+          "label": "Higher Quality Opportunities",
+          "description": "AI scoring surfaces the companies most likely to need space soon."
         },
         {
           "value": "Real-time",
-          "label": "Pipeline visibility"
+          "label": "Pipeline Visibility",
+          "description": "Every opportunity's status and signal history in one dashboard."
+        }
+      ],
+      "businessImpact": [
+        {
+          "label": "Research Time Per Prospect",
+          "value": "20–30 min",
+          "detail": "↓ ~2–3 min review",
+          "note": "≈ 85% reduction"
+        },
+        {
+          "label": "Companies Processed",
+          "value": "10,000+"
+        },
+        {
+          "label": "Estimated Time Saved",
+          "value": "15+ hours/week per broker"
+        },
+        {
+          "label": "Opportunity Quality Improvement",
+          "value": "~60% higher"
+        },
+        {
+          "label": "Manual Steps Eliminated",
+          "value": "5+"
+        },
+        {
+          "label": "Pipeline Visibility",
+          "value": "Real-time, always up to date"
+        }
+      ],
+      "beforeAfter": [
+        {
+          "before": "Cold calling & door-knocking",
+          "after": "Automated Signal Feed"
+        },
+        {
+          "before": "Reactive lease-expiration lists",
+          "after": "Proactive growth-signal detection"
+        },
+        {
+          "before": "Referral-dependent pipeline",
+          "after": "AI-matched identities & signals"
+        },
+        {
+          "before": "No opportunity prioritisation",
+          "after": "AI-scored & ranked opportunities"
         }
       ],
       "techStack": [
-        {
-          "name": "Next.js",
-          "colorClassName": "text-navy"
-        },
-        {
-          "name": "Supabase",
-          "colorClassName": "text-[#3ECF8E]"
-        },
-        {
-          "name": "Apify",
-          "colorClassName": "text-violet-600"
-        },
-        {
-          "name": "Pipedrive API",
-          "colorClassName": "text-emerald-600"
-        }
+        "Next.js",
+        "Supabase",
+        "Apify",
+        "Pipedrive API"
+      ],
+      "businessValue": [
+        "Eliminates hours of manual prospecting each week",
+        "Surfaces companies about to need space before competing brokers do",
+        "Standardises opportunity qualification with AI scoring",
+        "Keeps pipeline data accurate and up to date automatically",
+        "Improves broker focus on the highest-value opportunities",
+        "Gives leadership real-time visibility into pipeline health",
+        "Shows how AI can turn scattered growth signals into a scalable deal engine"
       ]
-    },
+    }
+  ],
+  "otherProjects": [
     {
-      "badge": "Training Program",
-      "mockup": "training",
       "name": "AI Workforce Upskilling",
       "description": "Designed and delivered hands-on AI training programmes for professionals.",
       "problem": "Employees understood AI in theory but had no clear way to apply it inside daily workflows.",
@@ -405,660 +490,12 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
       "partners": [
         {
           "name": "SkillsFuture",
-          "accentClassName": "text-red-600",
           "caption": "SG"
         },
         {
           "name": "SSG",
-          "accentClassName": "text-red-600",
           "caption": "Singapore SkillsFuture"
         }
-      ]
-    }
-  ],
-  "showcaseProjects": [
-    {
-      "slug": "invoiceflow",
-      "name": "InvoiceFlow",
-      "category": "Finance Workflow Automation",
-      "industry": "SME Finance & Operations",
-      "filterGroup": "AI Automation",
-      "impactLabel": "Impact",
-      "impactHeadline": "80 to 90% less time spent on invoicing",
-      "tags": [
-        {
-          "name": "n8n",
-          "colorClassName": "text-[#EA4B71]"
-        },
-        {
-          "name": "Supabase",
-          "colorClassName": "text-[#3ECF8E]"
-        },
-        {
-          "name": "WhatsApp API",
-          "colorClassName": "text-[#25D366]"
-        },
-        {
-          "name": "Resend",
-          "colorClassName": "text-navy"
-        }
-      ],
-      "challenge": "For many SMEs, invoicing is still a manual, multi-step process spread across different tools. It takes time, creates bottlenecks, and leaves room for human error, slowing cash flow and taking focus away from growing the business.",
-      "solution": "Metadox designed a workflow automation around the client's existing invoicing process, replacing manual, repetitive admin with a streamlined system that creates, sends, and tracks every invoice automatically, while keeping human review before anything goes out.",
-      "ctaLabel": "View Case Study",
-      "ctaHref": "/projects/invoiceflow"
-    },
-    {
-      "slug": "vero",
-      "name": "Vero",
-      "category": "AI Content Intelligence",
-      "industry": "Financial Advisory & Wealth Management",
-      "filterGroup": "AI Automation",
-      "impactLabel": "Impact",
-      "impactHeadline": "Hours of research turned into minutes",
-      "tags": [
-        {
-          "name": "Next.js",
-          "colorClassName": "text-navy"
-        },
-        {
-          "name": "Supabase",
-          "colorClassName": "text-[#3ECF8E]"
-        },
-        {
-          "name": "OpenAI API",
-          "colorClassName": "text-navy"
-        },
-        {
-          "name": "Telegram API",
-          "colorClassName": "text-[#26A5E4]"
-        }
-      ],
-      "challenge": "Financial advisors spend hours each week researching market updates, financial news, government initiatives, and relevant topics to share with their clients. The process is repetitive and time-consuming, taking valuable time away from client relationships and advisory work.",
-      "solution": "Metadox built Vero, an AI-powered content intelligence platform that researches relevant financial topics, identifies useful updates, and turns them into clear, client-ready content. Advisors can review, edit, and approve drafts before publishing, giving them a faster and more consistent way to stay connected with their clients.",
-      "ctaLabel": "View Case Study",
-      "ctaHref": "https://vero-app-six.vercel.app/"
-    },
-    {
-      "slug": "compass",
-      "name": "Compass",
-      "category": "CRE Intelligence & Automation",
-      "industry": "Commercial Real Estate",
-      "filterGroup": "AI Automation",
-      "impactLabel": "Impact",
-      "impactHeadline": "Hours of cold calling turned into minutes",
-      "tags": [
-        {
-          "name": "Next.js",
-          "colorClassName": "text-navy"
-        },
-        {
-          "name": "Supabase",
-          "colorClassName": "text-[#3ECF8E]"
-        },
-        {
-          "name": "Apify",
-          "colorClassName": "text-violet-600"
-        },
-        {
-          "name": "Pipedrive API",
-          "colorClassName": "text-emerald-600"
-        }
-      ],
-      "challenge": "Brokers relied on cold calling, door-knocking, and reactive lease-expiration lists, missing companies that were quietly outgrowing their space until a competing broker already had months of head start.",
-      "solution": "Metadox built Compass, an AI-powered commercial real estate intelligence platform that scans hiring, funding, and expansion signals to flag companies needing space months before a lease even comes up, then routes the strongest opportunities straight into an automated pipeline.",
-      "ctaLabel": "View Case Study",
-      "ctaHref": "/projects/compass"
-    }
-  ],
-  "portfolioProjects": [
-    {
-      "slug": "invoiceflow",
-      "name": "InvoiceFlow",
-      "category": "Finance Workflow Automation",
-      "filterGroup": "AI Automation",
-      "industry": "SME Finance & Operations",
-      "description": "Automating invoice generation, sending, tracking, and payment reminders for an SME finance team.",
-      "challenge": {
-        "title": "How most SMEs still",
-        "highlight": "handle invoicing",
-        "description": "For many SMEs, invoicing is still a manual, multi-step process spread across different tools. It takes time, creates bottlenecks, and leaves room for human error — slowing cash flow and taking focus away from growing the business.",
-        "calloutTitle": "Time-consuming. Error-prone. Hard to scale.",
-        "calloutHighlight": "It's a hidden cost most SMEs can't afford.",
-        "painPoints": [
-          {
-            "label": "Manual customer lookup",
-            "description": "Searching for customer information across multiple files and systems."
-          },
-          {
-            "label": "Manual invoice creation",
-            "description": "Creating invoices from scratch or copying old templates."
-          },
-          {
-            "label": "Manual PDF generation",
-            "description": "Converting documents to PDF before sending."
-          },
-          {
-            "label": "Manual email drafting",
-            "description": "Writing and sending emails individually to each customer."
-          },
-          {
-            "label": "Spreadsheet tracking",
-            "description": "Manually updating spreadsheets to track invoices and payments."
-          },
-          {
-            "label": "Manual payment follow-up",
-            "description": "Chasing payments through reminders and status checks."
-          },
-          {
-            "label": "Repetitive admin work",
-            "description": "Doing the same tasks over and over instead of value-added work."
-          },
-          {
-            "label": "Human error",
-            "description": "Typos, missed updates, and inconsistencies cause costly mistakes."
-          }
-        ],
-        "flow": [
-          {
-            "label": "Create in Excel/Word",
-            "colorClassName": "text-[#217346]"
-          },
-          {
-            "label": "Export as PDF",
-            "colorClassName": "text-[#e02424]"
-          },
-          {
-            "label": "Draft & send email",
-            "colorClassName": "text-blue-500"
-          },
-          {
-            "label": "Update spreadsheet",
-            "colorClassName": "text-[#0f9d58]"
-          },
-          {
-            "label": "Follow up for payment",
-            "colorClassName": "text-amber-400"
-          }
-        ],
-        "flowWarning": "Repetitive. Inconsistent. Easy to get wrong."
-      },
-      "solution": {
-        "description": "Metadox designed a workflow automation around the client's existing invoicing process — replacing manual, repetitive admin with a streamlined system, while keeping human review before anything is sent."
-      },
-      "workflow": {
-        "kpis": [
-          {
-            "value": "15 min+",
-            "label": "Manual Process",
-            "detail": "per invoice",
-            "tone": "red"
-          },
-          {
-            "value": "< 2 min",
-            "label": "With InvoiceFlow",
-            "detail": "per invoice",
-            "tone": "green"
-          },
-          {
-            "value": "87%",
-            "label": "Time Saved",
-            "detail": "per invoice",
-            "tone": "brand"
-          }
-        ],
-        "before": {
-          "timeValue": "15 min+",
-          "timeLabel": "per invoice",
-          "warning": "Repetitive, error-prone & time-consuming",
-          "loopLabel": "Repeat for every invoice",
-          "steps": [
-            {
-              "title": "Customer Request",
-              "description": "Receive invoice request"
-            },
-            {
-              "title": "Create Invoice Manually",
-              "description": "Manually input all details"
-            },
-            {
-              "title": "Generate PDF",
-              "description": "Export or save as PDF"
-            },
-            {
-              "title": "Draft Email",
-              "description": "Write and format email"
-            },
-            {
-              "title": "Send Invoice",
-              "description": "Attach PDF and send email"
-            },
-            {
-              "title": "Update Spreadsheet",
-              "description": "Manually update tracking sheet"
-            }
-          ]
-        },
-        "after": {
-          "timeValue": "< 2 min",
-          "timeLabel": "per invoice",
-          "badge": "Automated, accurate & faster",
-          "customerStep": {
-            "title": "Customer Request",
-            "description": "Invoice request received"
-          },
-          "automationLabel": "InvoiceFlow Automation",
-          "automationSteps": [
-            {
-              "title": "Retrieve Customer",
-              "description": "Auto-fetch customer details"
-            },
-            {
-              "title": "Generate Invoice",
-              "description": "Auto-generate invoice"
-            },
-            {
-              "title": "Create PDF",
-              "description": "Professional PDF created"
-            },
-            {
-              "title": "Send Email",
-              "description": "Email auto-drafted with invoice"
-            },
-            {
-              "title": "Update Tracking",
-              "description": "Tracking & due date updated"
-            },
-            {
-              "title": "Schedule Follow-up",
-              "description": "Payment reminder scheduled"
-            }
-          ],
-          "reviewStep": {
-            "title": "Review & Send",
-            "description": "Quick review and send"
-          }
-        },
-        "stats": [
-          {
-            "value": "87%",
-            "label": "Faster Invoicing",
-            "description": "Save up to 13 minutes per invoice.",
-            "tone": "blue"
-          },
-          {
-            "value": "0",
-            "label": "Manual Data Entry",
-            "description": "Customer retrieval, invoice generation, and tracking are automated.",
-            "tone": "green"
-          },
-          {
-            "value": "Automated",
-            "label": "Follow-ups",
-            "description": "Payment reminders are automatically scheduled and tracked.",
-            "tone": "purple"
-          },
-          {
-            "value": "100%",
-            "label": "Consistent Output",
-            "description": "Every invoice, PDF, and email follows the same professional standard.",
-            "tone": "orange"
-          }
-        ]
-      },
-      "businessImpact": {
-        "description": "The impact of moving invoicing from manual admin to an automated workflow.",
-        "stats": [
-          {
-            "label": "Time Per Invoice",
-            "value": "10–15 min",
-            "detail": "↓ ~1–2 min review",
-            "note": "≈ 80–90% reduction"
-          },
-          {
-            "label": "Invoices Per Month",
-            "value": "300"
-          },
-          {
-            "label": "Estimated Admin Time Saved",
-            "value": "40+ hours/month"
-          },
-          {
-            "label": "Estimated Labour Cost Saved",
-            "value": "~S$800–1,500/month"
-          },
-          {
-            "label": "Manual Steps Eliminated",
-            "value": "6+"
-          },
-          {
-            "label": "Human Errors",
-            "value": "Reduced through workflow standardisation"
-          }
-        ]
-      },
-      "beforeAfterTable": [
-        {
-          "before": "Manual invoice creation",
-          "after": "One-click generation"
-        },
-        {
-          "before": "Manual email",
-          "after": "Automated"
-        },
-        {
-          "before": "Spreadsheet tracking",
-          "after": "Dashboard"
-        },
-        {
-          "before": "Manual reminders",
-          "after": "Automated"
-        }
-      ],
-      "techStack": [
-        {
-          "name": "n8n",
-          "colorClassName": "text-[#EA4B71]"
-        },
-        {
-          "name": "Supabase",
-          "colorClassName": "text-[#3ECF8E]"
-        },
-        {
-          "name": "WhatsApp API",
-          "colorClassName": "text-[#25D366]"
-        },
-        {
-          "name": "Resend",
-          "colorClassName": "text-navy"
-        }
-      ],
-      "demo": {
-        "embedUrl": "https://app.arcade.software/share/videos/x13fbm2ZuArJfqmRtAUg"
-      },
-      "businessValue": [
-        "Reduces repetitive administrative work",
-        "Standardises finance workflows",
-        "Reduces manual errors",
-        "Improves invoice visibility",
-        "Better payment tracking",
-        "Improves operational efficiency",
-        "Shows how automation can help SMEs scale without adding admin workload"
-      ]
-    },
-    {
-      "slug": "compass",
-      "name": "Compass",
-      "category": "CRE Intelligence & Automation",
-      "filterGroup": "AI Automation",
-      "industry": "Commercial Real Estate",
-      "description": "An AI intelligence system that identifies companies likely to need office, retail or warehouse space within the next 6–12 months, and automates the broker's pipeline end to end.",
-      "challenge": {
-        "title": "How most CRE brokers still",
-        "highlight": "find space-hungry companies",
-        "description": "Most brokers still prospect the way they did 20 years ago: cold calling and door-knocking businesses in a submarket, and cross-checking URA REALIS or EdgeProp for leases that are about to expire. But an expiring lease is a reactive signal — by the time it shows up, several other brokers are already circling. Anything earlier — a funding round, a hiring spree, a new branch opening — has to be caught by manually reading business news and LinkedIn, one company at a time, or by hoping a lawyer, accountant or mover happens to mention a growing client.",
-        "calloutTitle": "Reactive prospecting. Data everywhere, signal nowhere.",
-        "calloutHighlight": "By the time a lease is expiring, three other brokers have already called.",
-        "painPoints": [
-          {
-            "label": "Cold calling & door-knocking",
-            "description": "Calling or visiting businesses one at a time, hoping to catch one that needs space."
-          },
-          {
-            "label": "Reactive lease-expiration lists",
-            "description": "URA REALIS and EdgeProp only flag a prospect once their lease is already about to expire."
-          },
-          {
-            "label": "Referral-dependent pipeline",
-            "description": "Relying on lawyers, accountants and movers to mention a client is growing."
-          },
-          {
-            "label": "Manual news & LinkedIn scanning",
-            "description": "Reading business journals and LinkedIn by hand for funding, hiring or expansion news."
-          },
-          {
-            "label": "Fragmented public records",
-            "description": "Permit filings, business licences and news sit in separate places with nothing joining them up."
-          },
-          {
-            "label": "No opportunity scoring",
-            "description": "Every company treated the same, with no way to prioritise who needs space soonest."
-          },
-          {
-            "label": "Delayed follow-up",
-            "description": "By the time a growing company is noticed, a competing broker has already made the call."
-          },
-          {
-            "label": "Spreadsheet-based tracking",
-            "description": "Tracking every prospect's status manually in a shared sheet."
-          }
-        ],
-        "flow": [
-          {
-            "label": "Cold call & door-knock",
-            "colorClassName": "text-[#0A66C2]"
-          },
-          {
-            "label": "Check URA REALIS / EdgeProp leases",
-            "colorClassName": "text-[#E4405F]"
-          },
-          {
-            "label": "Wait on referral tips",
-            "colorClassName": "text-[#0f9d58]"
-          },
-          {
-            "label": "Manually scan news & LinkedIn",
-            "colorClassName": "text-amber-500"
-          },
-          {
-            "label": "Follow up (often too late)",
-            "colorClassName": "text-red-500"
-          }
-        ],
-        "flowWarning": "Reactive. Fragmented. Signals missed every day."
-      },
-      "solution": {
-        "description": "Compass is an AI-powered commercial real estate intelligence platform that transforms real-time business signals into qualified property opportunities. AI continuously identifies, qualifies, and prioritises companies likely to require new office, retail, or warehouse space, enabling brokers to engage prospects months before competitors."
-      },
-      "workflow": {
-        "kpis": [
-          {
-            "value": "2-3 hrs/day",
-            "label": "Cold Calling & List-Chasing",
-            "detail": "per broker",
-            "tone": "red"
-          },
-          {
-            "value": "< 5 min",
-            "label": "With Compass",
-            "detail": "to review daily signals",
-            "tone": "green"
-          },
-          {
-            "value": "80%",
-            "label": "Time Saved",
-            "detail": "vs cold calling & lease-list chasing",
-            "tone": "brand"
-          }
-        ],
-        "before": {
-          "timeValue": "2-3 hrs/day",
-          "timeLabel": "per broker, cold calling & chasing lease lists",
-          "warning": "Reactive, inconsistent & signals missed",
-          "loopLabel": "Repeat for every submarket",
-          "steps": [
-            {
-              "title": "New Submarket",
-              "description": "Broker picks a submarket to prospect in"
-            },
-            {
-              "title": "Cold Call & Door-Knock",
-              "description": "Call or visit businesses one by one"
-            },
-            {
-              "title": "Check Lease-Expiration Lists",
-              "description": "Cross-reference URA REALIS or EdgeProp for expiring leases"
-            },
-            {
-              "title": "Wait on Referral Tips",
-              "description": "Hope a lawyer, accountant or mover mentions a growing client"
-            },
-            {
-              "title": "Guess Priority",
-              "description": "No consistent way to rank who needs space soonest"
-            },
-            {
-              "title": "Manual Outreach",
-              "description": "Reach out without knowing any growth signals"
-            }
-          ]
-        },
-        "after": {
-          "timeValue": "< 5 min",
-          "timeLabel": "to review daily qualified opportunities",
-          "badge": "Automated, scored & prioritised",
-          "customerStep": {
-            "title": "New Signal Detected",
-            "description": "Signal Feed catches a growth signal months before the lease renewal"
-          },
-          "automationLabel": "Compass Automation",
-          "automationSteps": [
-            {
-              "title": "Monitor Signal Feed",
-              "description": "Scans LinkedIn, Facebook, Instagram, news & public filings for growth signals"
-            },
-            {
-              "title": "Match Social Profiles",
-              "description": "AI matches identities across platforms"
-            },
-            {
-              "title": "Enrich Company Data",
-              "description": "Auto-fills company, headcount & contact details"
-            },
-            {
-              "title": "AI Opportunity Scoring",
-              "description": "Scores & prioritises by likelihood of near-term space need — months before a lease expires"
-            },
-            {
-              "title": "Sync to Pipeline",
-              "description": "Pushes qualified opportunities into the pipeline"
-            },
-            {
-              "title": "Notify Broker",
-              "description": "Sends an instant alert the moment a high-intent signal lands"
-            }
-          ],
-          "reviewStep": {
-            "title": "Review & Engage",
-            "description": "Broker reviews top opportunities and reaches out first"
-          }
-        },
-        "stats": [
-          {
-            "value": "80%",
-            "label": "Faster Qualification",
-            "description": "Cuts manual research time from hours to minutes.",
-            "tone": "blue"
-          },
-          {
-            "value": "10,000+",
-            "label": "Companies Processed",
-            "description": "Signal Feed continuously enriches and tracks companies at scale.",
-            "tone": "green"
-          },
-          {
-            "value": "60%",
-            "label": "Higher Quality Opportunities",
-            "description": "AI scoring surfaces the companies most likely to need space soon.",
-            "tone": "purple"
-          },
-          {
-            "value": "Real-time",
-            "label": "Pipeline Visibility",
-            "description": "Every opportunity's status and signal history in one dashboard.",
-            "tone": "orange"
-          }
-        ]
-      },
-      "businessImpact": {
-        "description": "The impact of moving CRE prospecting from manual research to an AI-scored Signal Feed.",
-        "stats": [
-          {
-            "label": "Research Time Per Prospect",
-            "value": "20–30 min",
-            "detail": "↓ ~2–3 min review",
-            "note": "≈ 85% reduction"
-          },
-          {
-            "label": "Companies Processed",
-            "value": "10,000+"
-          },
-          {
-            "label": "Estimated Time Saved",
-            "value": "15+ hours/week per broker"
-          },
-          {
-            "label": "Opportunity Quality Improvement",
-            "value": "~60% higher"
-          },
-          {
-            "label": "Manual Steps Eliminated",
-            "value": "5+"
-          },
-          {
-            "label": "Pipeline Visibility",
-            "value": "Real-time, always up to date"
-          }
-        ]
-      },
-      "beforeAfterTable": [
-        {
-          "before": "Cold calling & door-knocking",
-          "after": "Automated Signal Feed"
-        },
-        {
-          "before": "Reactive lease-expiration lists",
-          "after": "Proactive growth-signal detection"
-        },
-        {
-          "before": "Referral-dependent pipeline",
-          "after": "AI-matched identities & signals"
-        },
-        {
-          "before": "No opportunity prioritisation",
-          "after": "AI-scored & ranked opportunities"
-        }
-      ],
-      "techStack": [
-        {
-          "name": "Next.js",
-          "colorClassName": "text-navy"
-        },
-        {
-          "name": "Supabase",
-          "colorClassName": "text-[#3ECF8E]"
-        },
-        {
-          "name": "Apify",
-          "colorClassName": "text-violet-600"
-        },
-        {
-          "name": "Pipedrive API",
-          "colorClassName": "text-emerald-600"
-        }
-      ],
-      "demo": {
-        "embedUrl": "https://app.arcade.software/share/videos/kIyxlt47KCgFOPJXXLb2",
-        "liveUrl": "https://metadox-compass.vercel.app"
-      },
-      "businessValue": [
-        "Eliminates hours of manual prospecting each week",
-        "Surfaces companies about to need space before competing brokers do",
-        "Standardises opportunity qualification with AI scoring",
-        "Keeps pipeline data accurate and up to date automatically",
-        "Improves broker focus on the highest-value opportunities",
-        "Gives leadership real-time visibility into pipeline health",
-        "Shows how AI can turn scattered growth signals into a scalable deal engine"
       ]
     }
   ]
@@ -1073,16 +510,6 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
     "quote": "A lot of the work I used to do manually is now taken care of. It saves me hours every week and gives me more time to actually focus on my clients.",
     "name": "John Tan",
     "title": "Wealth Manager, AIA"
-  },
-  {
-    "quote": "More client stories coming soon.",
-    "title": "",
-    "comingSoon": true
-  },
-  {
-    "quote": "More client stories coming soon.",
-    "title": "",
-    "comingSoon": true
   }
 ]
 ```
@@ -1142,22 +569,17 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
       {
         "name": "Matthias Lee",
         "role": "Co-Founder",
-        "bio": "Leads the vision and strategy, bridging technology and business while leading the delivery team to turn ideas into practical solutions that solve real problems and create meaningful impact.",
-        "image": "/matthias.png"
+        "bio": "Leads the vision and strategy, bridging technology and business while leading the delivery team to turn ideas into practical solutions that solve real problems and create meaningful impact."
       },
       {
         "name": "Danny",
         "role": "Co-Founder",
-        "bio": "Leads strategic management and leadership, aligning the team, guiding key decisions, and helping shape the company’s direction and growth.",
-        "image": "/Danny.jpg"
+        "bio": "Leads strategic management and leadership, aligning the team, guiding key decisions, and helping shape the company’s direction and growth."
       },
       {
         "name": "William Ang",
         "role": "Chief Sales Officer",
-        "bio": "Leads commercial strategy and sales execution, turning technology into real business value, building lasting client relationships, and leading the sales team to drive growth and results.",
-        "image": "/william.jpg",
-        "imagePosition": "50% 65%",
-        "imageZoom": 1.7
+        "bio": "Leads commercial strategy and sales execution, turning technology into real business value, building lasting client relationships, and leading the sales team to drive growth and results."
       }
     ]
   }
@@ -1199,8 +621,7 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
   "schedulerNote": "We reserve dedicated time for every call. If you cannot make it, let us know in advance so we can arrange another slot.",
   "fallbackHeading": "Open the booking calendar",
   "fallbackBody": "The scheduler could not load here. You can still pick a time on Calendly directly.",
-  "fallbackCta": "Choose a time",
-  "loading": "Loading available times…"
+  "fallbackCta": "Choose a time"
 }
 ```
 
@@ -1216,46 +637,6 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
       "Traditional SEO helps your business appear higher in Google search results. GEO helps your business appear directly in the answers people get from AI.",
       "When someone asks AI for a product, service, or recommendation, GEO increases the chances of your business being one of the answers they see."
     ]
-  },
-  "geoProblem": {
-    "eyebrow": "The Problem",
-    "headingLines": [
-      "Search moved",
-      "into the chatbox."
-    ],
-    "subhead": "AI now answers the questions your buyers used to ask Google. If it cannot see you, you are not in the conversation.",
-    "steps": [
-      {
-        "num": "01",
-        "label": "Discovery",
-        "title": "Buyers ask AI first",
-        "body": "Before they visit a website or read a review, your customers ask AI who to choose. That answer becomes their shortlist."
-      },
-      {
-        "num": "02",
-        "label": "The Risk",
-        "title": "AI names your competitors",
-        "body": "If AI does not know enough about you, it confidently recommends someone else, by name, in your category."
-      },
-      {
-        "num": "03",
-        "label": "Blind Spot",
-        "title": "You never see it happen",
-        "body": "It never shows up in your analytics. The lost sale looks like it never happened, and that is the part that costs the most."
-      }
-    ],
-    "chat": {
-      "url": "chatgpt.com",
-      "question": "Who's the best digital transformation consultancy in Singapore?",
-      "answerLead": "Great question. I'd go with",
-      "competitors": [
-        "Northpoint",
-        "Vertex Labs",
-        "Lumen Digital"
-      ],
-      "answerTail": "They're the most established and the best documented.",
-      "warning": "Your brand was left out of the answer, so the buyer's shortlist formed without you."
-    }
   },
   "geoServices": {
     "eyebrow": "What We Do",
@@ -1324,45 +705,6 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
         ]
       }
     ]
-  },
-  "geoComparison": {
-    "eyebrow": "The Shift",
-    "heading": "SEO gets you ranked. GEO gets you recommended.",
-    "subhead": "The two work together, but they are not the same discipline. Here is where they part ways.",
-    "seoLabel": "Traditional SEO",
-    "geoLabel": "Generative Engine Optimisation",
-    "rows": [
-      {
-        "aspect": "Goal",
-        "seo": "Rank a page in a list of results.",
-        "geo": "Be named and cited inside the answer."
-      },
-      {
-        "aspect": "Surface",
-        "seo": "Ten blue links on a results page.",
-        "geo": "One generated response, often with no links at all."
-      },
-      {
-        "aspect": "How you win",
-        "seo": "Keywords, backlinks, technical performance.",
-        "geo": "Clear facts, citable claims, structured entities, third-party mentions."
-      },
-      {
-        "aspect": "Content style",
-        "seo": "Long pages written to hold attention.",
-        "geo": "Direct answers a model can lift, quote, and attribute."
-      },
-      {
-        "aspect": "Measurement",
-        "seo": "Positions, impressions, organic clicks.",
-        "geo": "Share of AI answers, citation frequency, sentiment of the mention."
-      },
-      {
-        "aspect": "Competition",
-        "seo": "Everyone on page one.",
-        "geo": "The two or three brands the model considers worth naming."
-      }
-    ]
   }
 }
 ```
@@ -1400,7 +742,7 @@ Government grants may offset cost for eligible Singapore businesses (see Grants 
 
 ## Common Pain Points and How Metadox Helps
 
-These are pain-point-specific pitches surfaced during the readiness assessments. Use them to recognise a visitor's problem and explain how Metadox helps, in your own words.
+These are pain-point-specific pitches surfaced during the readiness assessment. Use them to recognise a visitor's problem and explain how Metadox helps, in your own words.
 
 ```json
 {
@@ -1459,58 +801,6 @@ These are pain-point-specific pitches surfaced during the readiness assessments.
     "potentialImpact": "A meaningful jump in speed, accuracy or output on the process you choose.",
     "difficulty": "Medium",
     "metadoxHelp": "Metadox identifies the highest-impact AI use case for your business and implements it end-to-end."
-  }
-}
-```
-```json
-{
-  "prompt-engineering": {
-    "title": "Master Prompt Engineering",
-    "why": "Writing and refining prompts is the single skill that unlocks better results from every AI tool you use — it's the foundation everything else builds on.",
-    "productivityImpact": "Faster, more accurate AI output with far less trial and error.",
-    "difficulty": "Low"
-  },
-  "ai-fundamentals": {
-    "title": "Learn AI Fundamentals & Generative AI",
-    "why": "A clearer understanding of how generative AI and large language models actually work will help you use them more effectively and with more confidence.",
-    "productivityImpact": "More confident, informed decisions about when and how to use AI.",
-    "difficulty": "Low"
-  },
-  "ai-ethics-safety": {
-    "title": "Learn AI Ethics, Privacy & Risk Awareness",
-    "why": "Understanding AI's limitations, hallucination risks and privacy considerations is essential before relying on it more heavily in your work.",
-    "productivityImpact": "Safer, more responsible AI use with fewer costly mistakes.",
-    "difficulty": "Low"
-  },
-  "workflow-automation": {
-    "title": "Learn AI Workflow Automation",
-    "why": "You're comfortable using AI tools individually — the next step is connecting them into repeatable workflows that save time automatically.",
-    "productivityImpact": "Hours saved every week on repetitive, multi-step tasks.",
-    "difficulty": "Medium"
-  },
-  "microsoft-365-ai": {
-    "title": "Learn AI for Microsoft 365",
-    "why": "Microsoft Copilot is already available inside the tools you use daily — learning it properly turns everyday tasks into quick, AI-assisted work.",
-    "productivityImpact": "Faster document drafting, meeting notes and data work inside tools you already use.",
-    "difficulty": "Low"
-  },
-  "data-analysis-ai": {
-    "title": "Learn AI Data Analysis",
-    "why": "You're not yet using AI for data or reporting work — this is one of the highest-value applications available for most roles.",
-    "productivityImpact": "Faster insights and reporting without manual number-crunching.",
-    "difficulty": "Medium"
-  },
-  "content-creation-ai": {
-    "title": "Learn AI Content Creation",
-    "why": "Building stronger AI content skills — writing, visuals and formats — will speed up a large share of day-to-day communication work.",
-    "productivityImpact": "Faster, more consistent content output across formats.",
-    "difficulty": "Low"
-  },
-  "multi-tool-fluency": {
-    "title": "Build Multi-Tool AI Fluency",
-    "why": "You're relying on a single AI tool today — different tools have different strengths, and broadening your toolkit will improve your results.",
-    "productivityImpact": "Better results by matching the right AI tool to the right task.",
-    "difficulty": "Low"
   }
 }
 ```

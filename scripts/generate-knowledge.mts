@@ -12,9 +12,7 @@ import { siteConfig, calendlyUrl } from "../lib/site";
 import * as content from "../lib/content";
 import * as landing from "../lib/landing-content";
 import * as geo from "../lib/geo-content";
-import * as projects from "../lib/projects-content";
 import { actionLibrary } from "../lib/readiness/actions";
-import { skillActionLibrary } from "../lib/skills-readiness/actions";
 
 const OUTPUT_PATH = path.join(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -24,8 +22,30 @@ const OUTPUT_PATH = path.join(
   "knowledge.generated.md",
 );
 
-/** Drops icon components (LucideIcon/IconType), functions, and React elements. */
-function stripNonSerializable(_key: string, value: unknown): unknown {
+/** Presentation-only keys (CSS classes, image paths, embed/UI config) the chat model can never use. */
+const UI_ONLY_KEYS = new Set([
+  "icon",
+  "badgeIcon",
+  "colorClassName",
+  "accentClassName",
+  "image",
+  "imagePosition",
+  "imageZoom",
+  "accent",
+  "tone",
+  "badge",
+  "mockup",
+  "embedUrl",
+  "liveUrl",
+  "cardHref",
+  "cardCta",
+  "ctaHref",
+  "loading",
+]);
+
+/** Drops icon components (LucideIcon/IconType), functions, React elements, and UI-only fields. */
+function stripNonSerializable(key: string, value: unknown): unknown {
+  if (UI_ONLY_KEYS.has(key)) return undefined;
   if (typeof value === "function") return undefined;
   if (value && typeof value === "object" && "$$typeof" in value) return undefined;
   return value;
@@ -34,6 +54,34 @@ function stripNonSerializable(_key: string, value: unknown): unknown {
 function section(title: string, data: unknown): string {
   const json = JSON.stringify(data, stripNonSerializable, 2);
   return `## ${title}\n\n\`\`\`json\n${json}\n\`\`\`\n`;
+}
+
+/**
+ * Case studies live in three overlapping shapes across the site (homepage cards,
+ * portfolio index, full project pages). For the chat knowledge base we want the
+ * conversational substance once each: what the problem was, what we built, and
+ * the numbers that prove it worked — not the animated before/after step sequences
+ * or slug/embed data those page components render.
+ */
+function condensePortfolioProject(p: (typeof content.portfolioProjects)[number]) {
+  return {
+    name: p.name,
+    industry: p.industry,
+    category: p.category,
+    description: p.description,
+    challenge: p.challenge.description,
+    solution: p.solution.description,
+    keyStats: p.workflow.stats.map((s) => ({ value: s.value, label: s.label, description: s.description })),
+    businessImpact: p.businessImpact.stats.map((s) => ({
+      label: s.label,
+      value: s.value,
+      detail: s.detail,
+      note: s.note,
+    })),
+    beforeAfter: p.beforeAfterTable,
+    techStack: p.techStack.map((t) => t.name),
+    businessValue: p.businessValue,
+  };
 }
 
 const sections: string[] = [];
@@ -77,17 +125,29 @@ sections.push(
   section("Grants (Singapore)", content.grants),
 );
 
-sections.push(
-  section("Case Studies & Portfolio", {
-    caseStudies: content.caseStudies,
-    featuredProjects: content.featuredProjects,
-    showcaseProjects: projects.showcaseProjects,
-    portfolioProjects: content.portfolioProjects,
-  }),
-);
+{
+  // Full write-ups exist in portfolioProjects; only keep featuredProjects entries
+  // (e.g. the training programme) that don't already have one, so nothing is
+  // described three times over.
+  const portfolioSlugs = new Set(content.portfolioProjects.map((p) => p.slug));
+  const otherFeaturedProjects = content.featuredProjects.filter(
+    (p) => !p.slug || !portfolioSlugs.has(p.slug),
+  );
+
+  sections.push(
+    section("Case Studies & Portfolio", {
+      highlightStats: content.caseStudies,
+      detailedCaseStudies: content.portfolioProjects.map(condensePortfolioProject),
+      otherProjects: otherFeaturedProjects,
+    }),
+  );
+}
 
 sections.push(
-  section("Testimonials", landing.testimonials),
+  section(
+    "Testimonials",
+    landing.testimonials.filter((t) => !("comingSoon" in t && t.comingSoon)),
+  ),
 );
 
 sections.push(
@@ -105,12 +165,13 @@ sections.push(
 );
 
 sections.push(
+  // geoProblem (scripted chat-demo widget) and geoComparison (SEO-vs-GEO table) are
+  // page-presentation content, not facts Sarah needs — she can explain the idea in
+  // her own words per the persona rules, so only the substance is kept here.
   section("GEO (Generative Engine Optimisation) Service", {
     geoDefinition: geo.geoDefinition,
-    geoProblem: geo.geoProblem,
     geoServices: geo.geoServices,
     geoProcess: geo.geoProcess,
-    geoComparison: geo.geoComparison,
   }),
 );
 
@@ -118,9 +179,8 @@ sections.push(section("GEO FAQ", geo.geoFaq.items));
 
 sections.push(
   "## Common Pain Points and How Metadox Helps\n\n" +
-    "These are pain-point-specific pitches surfaced during the readiness assessments. Use them to recognise a visitor's problem and explain how Metadox helps, in your own words.\n\n" +
-    section("Business pain points", actionLibrary).replace(/^## [^\n]+\n\n/, "") +
-    section("Individual/skills pain points", skillActionLibrary).replace(/^## [^\n]+\n\n/, ""),
+    "These are pain-point-specific pitches surfaced during the readiness assessment. Use them to recognise a visitor's problem and explain how Metadox helps, in your own words.\n\n" +
+    section("Business pain points", actionLibrary).replace(/^## [^\n]+\n\n/, ""),
 );
 
 const output = sections.join("\n");
